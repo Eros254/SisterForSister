@@ -1,21 +1,21 @@
-/* =============================================
+/* =================================================
    Sister For Sister Kenya — main.js
-   Paystack: Card Payments + M-Pesa STK Push
-   =============================================
+   Payments: Paystack (Card) + M-Pesa STK Push
+   =================================================
 
-   SETUP:
-   1. Sign up at https://paystack.com/ke
-   2. Settings → API Keys → copy Public Key
-   3. Replace PAYSTACK_PUBLIC_KEY below
-   4. Deploy a small backend for M-Pesa STK push
-      (see comments in the M-Pesa section below)
-   ============================================= */
+   SETUP — 3 steps:
+   1. Go to https://dashboard.paystack.com
+      Settings → API Keys → copy your Public Key
+   2. Paste it as PAYSTACK_PUBLIC_KEY below
+   3. For M-Pesa STK Push, deploy the two backend
+      endpoints described in the M-Pesa section
+   ================================================= */
 
-const PAYSTACK_PUBLIC_KEY = 'pk_test_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
+const PAYSTACK_PUBLIC_KEY = 'pk_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxx'; // ← Your Paystack public key
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ── NAV SCROLL ── */
+  /* ── NAV SCROLL SHADOW ── */
   const nav = document.getElementById('mainNav');
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 40);
@@ -29,10 +29,12 @@ document.addEventListener('DOMContentLoaded', () => {
       const open = mobileMenu.classList.toggle('open');
       hamburger.setAttribute('aria-expanded', String(open));
     });
-    mobileMenu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => mobileMenu.classList.remove('open')));
+    mobileMenu.querySelectorAll('a').forEach(l => {
+      l.addEventListener('click', () => mobileMenu.classList.remove('open'));
+    });
   }
 
-  /* ── NEEDS TABS ── */
+  /* ── FUNDING NEEDS TABS ── */
   window.showTab = function (id, btn) {
     document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -41,14 +43,26 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   /* ── SCROLL REVEAL ── */
-  const els = document.querySelectorAll('.program-card,.impact-card,.help-way,.contact-item,.mission-item');
-  els.forEach(el => { el.style.opacity = '0'; el.style.transform = 'translateY(22px)'; el.style.transition = 'opacity 0.55s ease, transform 0.55s ease'; });
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; io.unobserve(e.target); } });
+  const revealEls = document.querySelectorAll(
+    '.program-card, .impact-card, .help-way, .contact-item, .mission-item'
+  );
+  revealEls.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(22px)';
+    el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
+  });
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+        revealObserver.unobserve(e.target);
+      }
+    });
   }, { threshold: 0.1 });
-  els.forEach(el => io.observe(el));
+  revealEls.forEach(el => revealObserver.observe(el));
 
-  /* ── PAYMENT METHOD TABS ── */
+  /* ── PAYMENT METHOD SWITCHER ── */
   document.querySelectorAll('.pay-tab').forEach(tab => {
     tab.addEventListener('click', () => {
       document.querySelectorAll('.pay-tab').forEach(t => t.classList.remove('active'));
@@ -79,15 +93,15 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   function getAmount() {
-    const custom = document.querySelector('.pay-panel.active .custom-amount');
+    const activePanel = document.querySelector('.pay-panel.active');
+    const custom = activePanel ? activePanel.querySelector('.custom-amount') : null;
     return (custom && custom.value) ? parseInt(custom.value, 10) : selectedAmount;
   }
 
   /* ══════════════════════════════════════════
-     PAYSTACK — CARD PAYMENT (Popup)
-     Paystack's secure hosted popup handles
-     all card details — PCI compliant,
-     nothing stored on your server.
+     PAYSTACK — CARD PAYMENT (Hosted Popup)
+     PCI-compliant — card data never touches
+     your server. Paystack handles everything.
      ══════════════════════════════════════════ */
   const cardForm = document.getElementById('cardForm');
   if (cardForm) {
@@ -102,8 +116,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!amount || amount < 100) { errEl.textContent = 'Minimum donation is KES 100.'; return; }
       errEl.textContent = '';
 
-      if (typeof PaystackPop === 'undefined') {
-        // Demo mode — Paystack JS not loaded or key is placeholder
+      // Demo mode if key is placeholder or Paystack JS not loaded
+      if (typeof PaystackPop === 'undefined' || PAYSTACK_PUBLIC_KEY.includes('xxxx')) {
         showSuccess(amount, name, 'Card', 'DEMO-' + Date.now());
         return;
       }
@@ -111,21 +125,21 @@ document.addEventListener('DOMContentLoaded', () => {
       const handler = PaystackPop.setup({
         key: PAYSTACK_PUBLIC_KEY,
         email,
-        amount: amount * 100,         // Paystack amounts are in kobo/cents
+        amount: amount * 100,           // Paystack uses smallest currency unit
         currency: 'KES',
         ref: 'SFS-CARD-' + Date.now(),
         label: 'Sister For Sister Kenya Donation',
         metadata: {
           custom_fields: [
-            { display_name: 'Donor Name',    variable_name: 'donor_name', value: name },
-            { display_name: 'Donation Type', variable_name: 'type',       value: 'Card' },
+            { display_name: 'Donor Name',   variable_name: 'donor_name', value: name },
+            { display_name: 'Method',       variable_name: 'method',     value: 'Card' },
           ],
         },
         callback(response) {
           showSuccess(amount, name, 'Card', response.reference);
         },
         onClose() {
-          errEl.textContent = 'Payment window closed. Try again when ready.';
+          errEl.textContent = 'Payment window closed. Click "Donate by Card" to try again.';
         },
       });
       handler.openIframe();
@@ -133,25 +147,46 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ══════════════════════════════════════════
-     PAYSTACK — M-PESA STK PUSH
-     Sends a payment prompt straight to the
-     donor's Safaricom phone. They approve
-     by entering their M-Pesa PIN.
+     M-PESA STK PUSH via Paystack
+     Sends a prompt to the donor's Safaricom
+     phone. They approve with their M-Pesa PIN.
+     No app needed — works on any phone.
 
-     BACKEND REQUIRED — your server calls:
-     POST https://api.paystack.co/charge
-     Headers: { Authorization: "Bearer sk_live_..." }
-     Body: {
-       email, currency: "KES",
-       amount: amountInKobo,
-       mobile_money: {
-         phone: "2547XXXXXXXX",
-         provider: "mpesa"
-       }
-     }
-     Then poll GET /charge/:reference until
-     data.data.status === "success" and return
-     { success: true, reference } to the browser.
+     ── BACKEND ENDPOINTS TO BUILD ────────────
+
+     POST /api/mpesa-charge
+       Receives: { name, email, phone, amount }
+       Calls Paystack:
+         POST https://api.paystack.co/charge
+         Auth: Bearer sk_live_YOUR_SECRET_KEY
+         Body: {
+           email,
+           currency: "KES",
+           amount: amount * 100,
+           mobile_money: {
+             phone: "2547XXXXXXXX",
+             provider: "mpesa"
+           }
+         }
+       Returns: { success: true, reference: "xxx" }
+
+     GET /api/mpesa-status?ref=xxx
+       Calls Paystack:
+         GET https://api.paystack.co/charge/xxx
+         Auth: Bearer sk_live_YOUR_SECRET_KEY
+       Returns: { status: "success"|"pending"|"failed" }
+
+     Node.js / Express example:
+       app.post('/api/mpesa-charge', async (req, res) => {
+         const { email, phone, amount } = req.body;
+         const r = await axios.post(
+           'https://api.paystack.co/charge',
+           { email, currency:'KES', amount: amount*100,
+             mobile_money: { phone, provider:'mpesa' } },
+           { headers: { Authorization: `Bearer ${SK_LIVE}` } }
+         );
+         res.json({ success: true, reference: r.data.data.reference });
+       });
      ══════════════════════════════════════════ */
   const mpesaForm = document.getElementById('mpesaForm');
   if (mpesaForm) {
@@ -168,20 +203,20 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!phone)           { errEl.textContent = 'Please enter your Safaricom number.'; return; }
       if (!amount || amount < 100) { errEl.textContent = 'Minimum donation is KES 100.'; return; }
 
-      // Normalise to 2547XXXXXXXX
-      const raw = phone.replace(/[\s\-]/g, '');
-      const norm = raw.startsWith('0') ? '254' + raw.slice(1)
-                 : raw.startsWith('+') ? raw.slice(1)
+      // Normalise to international format: 2547XXXXXXXX
+      const raw  = phone.replace(/[\s\-()]/g, '');
+      const norm = raw.startsWith('0')  ? '254' + raw.slice(1)
+                 : raw.startsWith('+')  ? raw.slice(1)
                  : raw;
 
       if (!/^2547\d{8}$/.test(norm)) {
-        errEl.textContent = 'Enter a valid Safaricom number e.g. 0712 345 678';
+        errEl.textContent = 'Enter a valid Safaricom number, e.g. 0712 345 678';
         return;
       }
 
       errEl.textContent = '';
       btn.disabled = true;
-      btn.innerHTML = '<span class="spin">⏳</span> Sending to your phone…';
+      btn.textContent = '⏳ Sending to your phone…';
 
       try {
         const res = await fetch('/api/mpesa-charge', {
@@ -189,25 +224,25 @@ document.addEventListener('DOMContentLoaded', () => {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ name, email, phone: norm, amount }),
         });
-        if (!res.ok) throw new Error('Server error');
+        if (!res.ok) throw new Error('Server error — check your backend.');
         const data = await res.json();
         if (data.success) {
           showPending(norm);
-          pollStatus(data.reference, amount, name);
+          pollMpesa(data.reference, amount, name);
         } else {
-          throw new Error(data.message || 'Could not send M-Pesa prompt.');
+          throw new Error(data.message || 'M-Pesa prompt could not be sent.');
         }
       } catch (err) {
-        // Demo mode — no backend yet
-        console.warn('Backend not connected — demo mode:', err.message);
+        // Demo mode — backend not yet connected
+        console.warn('M-Pesa backend not connected — demo mode:', err.message);
         showPending(norm);
         setTimeout(() => showSuccess(amount, name, 'M-Pesa', 'DEMO-' + Date.now()), 5000);
       }
     });
   }
 
-  /* ── POLL FOR M-PESA COMPLETION ── */
-  async function pollStatus(ref, amount, name) {
+  /* ── POLL UNTIL M-PESA COMPLETES (every 5s, max 60s) ── */
+  async function pollMpesa(ref, amount, name) {
     let tries = 0;
     const timer = setInterval(async () => {
       tries++;
@@ -221,18 +256,18 @@ document.addEventListener('DOMContentLoaded', () => {
           clearInterval(timer);
           resetMpesaForm(tries >= 12
             ? 'Payment timed out. Check your phone and try again.'
-            : 'M-Pesa payment was not completed. Please try again.');
+            : 'M-Pesa payment was cancelled. Please try again.');
         }
-      } catch (_) { /* keep polling */ }
+      } catch (_) { /* keep polling silently */ }
     }, 5000);
   }
 
-  /* ── UI HELPERS ── */
+  /* ── UI STATE HELPERS ── */
   function showPending(phone) {
     document.getElementById('mpesaForm').style.display = 'none';
-    const p = document.getElementById('mpesaPending');
-    p.style.display = 'block';
-    p.querySelector('.pending-phone').textContent = '+' + phone;
+    const pending = document.getElementById('mpesaPending');
+    pending.style.display = 'block';
+    pending.querySelector('.pending-phone').textContent = '+' + phone;
   }
 
   function resetMpesaForm(msg) {
@@ -240,22 +275,23 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('mpesaForm').style.display    = 'block';
     document.getElementById('mpesaError').textContent     = msg;
     const btn = document.getElementById('mpesaBtn');
-    btn.disabled  = false;
-    btn.innerHTML = '📲 Send M-Pesa Prompt';
+    btn.disabled    = false;
+    btn.textContent = '📲 Send M-Pesa Prompt';
   }
 
   function showSuccess(amount, name, method, ref) {
-    // Hide everything in donate-right
-    document.querySelectorAll('.donate-intro, .pay-tabs-bar, .amount-section, .pay-panels, #mpesaPending').forEach(el => {
-      if (el) el.style.display = 'none';
-    });
+    ['.donate-intro', '.pay-tabs-bar', '.amount-section', '.pay-panels', '#mpesaPending']
+      .forEach(sel => {
+        const el = document.querySelector(sel);
+        if (el) el.style.display = 'none';
+      });
     const s = document.getElementById('donateSuccess');
     s.style.display = 'block';
-    s.querySelector('.success-name').textContent   = name.split(' ')[0];
-    s.querySelector('.success-amount').textContent = 'KES ' + amount.toLocaleString();
-    s.querySelector('.success-method').textContent = method;
-    const refEl = s.querySelector('.success-ref');
-    if (refEl) refEl.textContent = ref && !ref.startsWith('DEMO') ? 'Ref: ' + ref : '';
+    s.querySelector('.s-name').textContent   = name.split(' ')[0];
+    s.querySelector('.s-amount').textContent = 'KES ' + amount.toLocaleString();
+    s.querySelector('.s-method').textContent = method;
+    const refEl = s.querySelector('.s-ref');
+    if (refEl) refEl.textContent = (ref && !ref.startsWith('DEMO')) ? 'Reference: ' + ref : '';
   }
 
 });
