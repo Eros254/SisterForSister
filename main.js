@@ -1,17 +1,15 @@
 /* =================================================
    Sister For Sister Kenya — main.js
-   Payments: Paystack (Card) + M-Pesa STK Push
-   =================================================
-
-   SETUP — 3 steps:
-   1. Go to https://dashboard.paystack.com
-      Settings → API Keys → copy your Public Key
-   2. Paste it as PAYSTACK_PUBLIC_KEY below
-   3. For M-Pesa STK Push, deploy the two backend
-      endpoints described in the M-Pesa section
+   Payments:
+     • M-Pesa STK Push (via Daraja API / Vercel)
+     • Flutterwave (Card / diaspora donors)
    ================================================= */
 
-const PAYSTACK_PUBLIC_KEY = 'pk_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxx'; // ← Your Paystack public key
+/* ── Flutterwave Public Key ──
+   Safe to put here (public key only).
+   Get it from: Flutterwave Dashboard → Settings → API Keys
+   Replace the placeholder below once you have it.        */
+const FLW_PUBLIC_KEY = 'FLWPUBK-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-X'; // ← Your Flutterwave public key
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -73,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* ── AMOUNT SELECTION ── */
+  /* ── AMOUNT SELECTION (shared) ── */
   let selectedAmount = 2500;
 
   document.querySelectorAll('.amount-btn').forEach(btn => {
@@ -98,100 +96,18 @@ document.addEventListener('DOMContentLoaded', () => {
     return (custom && custom.value) ? parseInt(custom.value, 10) : selectedAmount;
   }
 
-  /* ══════════════════════════════════════════
-     PAYSTACK — CARD PAYMENT (Hosted Popup)
-     PCI-compliant — card data never touches
-     your server. Paystack handles everything.
-     ══════════════════════════════════════════ */
-  const cardForm = document.getElementById('cardForm');
-  if (cardForm) {
-    cardForm.addEventListener('submit', e => {
-      e.preventDefault();
-      const name   = document.getElementById('cardName').value.trim();
-      const email  = document.getElementById('cardEmail').value.trim();
-      const amount = getAmount();
-      const errEl  = document.getElementById('cardError');
-
-      if (!name || !email) { errEl.textContent = 'Please enter your name and email.'; return; }
-      if (!amount || amount < 100) { errEl.textContent = 'Minimum donation is KES 100.'; return; }
-      errEl.textContent = '';
-
-      // Demo mode if key is placeholder or Paystack JS not loaded
-      if (typeof PaystackPop === 'undefined' || PAYSTACK_PUBLIC_KEY.includes('xxxx')) {
-        showSuccess(amount, name, 'Card', 'DEMO-' + Date.now());
-        return;
-      }
-
-      const handler = PaystackPop.setup({
-        key: PAYSTACK_PUBLIC_KEY,
-        email,
-        amount: amount * 100,           // Paystack uses smallest currency unit
-        currency: 'KES',
-        ref: 'SFS-CARD-' + Date.now(),
-        label: 'Sister For Sister Kenya Donation',
-        metadata: {
-          custom_fields: [
-            { display_name: 'Donor Name',   variable_name: 'donor_name', value: name },
-            { display_name: 'Method',       variable_name: 'method',     value: 'Card' },
-          ],
-        },
-        callback(response) {
-          showSuccess(amount, name, 'Card', response.reference);
-        },
-        onClose() {
-          errEl.textContent = 'Payment window closed. Click "Donate by Card" to try again.';
-        },
-      });
-      handler.openIframe();
-    });
-  }
-
-  /* ══════════════════════════════════════════
-     M-PESA STK PUSH via Paystack
-     Sends a prompt to the donor's Safaricom
-     phone. They approve with their M-Pesa PIN.
-     No app needed — works on any phone.
-
-     ── BACKEND ENDPOINTS TO BUILD ────────────
-
-     POST /api/mpesa-charge
-       Receives: { name, email, phone, amount }
-       Calls Paystack:
-         POST https://api.paystack.co/charge
-         Auth: Bearer sk_live_YOUR_SECRET_KEY
-         Body: {
-           email,
-           currency: "KES",
-           amount: amount * 100,
-           mobile_money: {
-             phone: "2547XXXXXXXX",
-             provider: "mpesa"
-           }
-         }
-       Returns: { success: true, reference: "xxx" }
-
-     GET /api/mpesa-status?ref=xxx
-       Calls Paystack:
-         GET https://api.paystack.co/charge/xxx
-         Auth: Bearer sk_live_YOUR_SECRET_KEY
-       Returns: { status: "success"|"pending"|"failed" }
-
-     Node.js / Express example:
-       app.post('/api/mpesa-charge', async (req, res) => {
-         const { email, phone, amount } = req.body;
-         const r = await axios.post(
-           'https://api.paystack.co/charge',
-           { email, currency:'KES', amount: amount*100,
-             mobile_money: { phone, provider:'mpesa' } },
-           { headers: { Authorization: `Bearer ${SK_LIVE}` } }
-         );
-         res.json({ success: true, reference: r.data.data.reference });
-       });
-     ══════════════════════════════════════════ */
+  /* ══════════════════════════════════════════════
+     M-PESA STK PUSH
+     Calls /api/mpesa-charge (Vercel serverless).
+     That function uses your Daraja credentials
+     (stored safely as Vercel env vars) to send
+     a payment prompt to the donor's phone.
+     ══════════════════════════════════════════════ */
   const mpesaForm = document.getElementById('mpesaForm');
   if (mpesaForm) {
     mpesaForm.addEventListener('submit', async e => {
       e.preventDefault();
+
       const name   = document.getElementById('mpesaName').value.trim();
       const email  = document.getElementById('mpesaEmail').value.trim();
       const phone  = document.getElementById('mpesaPhone').value.trim();
@@ -199,18 +115,19 @@ document.addEventListener('DOMContentLoaded', () => {
       const errEl  = document.getElementById('mpesaError');
       const btn    = document.getElementById('mpesaBtn');
 
+      // Validate
       if (!name || !email) { errEl.textContent = 'Please enter your name and email.'; return; }
       if (!phone)           { errEl.textContent = 'Please enter your Safaricom number.'; return; }
-      if (!amount || amount < 100) { errEl.textContent = 'Minimum donation is KES 100.'; return; }
+      if (!amount || amount < 1) { errEl.textContent = 'Please select or enter an amount.'; return; }
 
-      // Normalise to international format: 2547XXXXXXXX
+      // Normalise phone → 2547XXXXXXXX
       const raw  = phone.replace(/[\s\-()]/g, '');
       const norm = raw.startsWith('0')  ? '254' + raw.slice(1)
                  : raw.startsWith('+')  ? raw.slice(1)
                  : raw;
 
       if (!/^2547\d{8}$/.test(norm)) {
-        errEl.textContent = 'Enter a valid Safaricom number, e.g. 0712 345 678';
+        errEl.textContent = 'Enter a valid Safaricom number e.g. 0712 345 678';
         return;
       }
 
@@ -220,50 +137,55 @@ document.addEventListener('DOMContentLoaded', () => {
 
       try {
         const res = await fetch('/api/mpesa-charge', {
-          method: 'POST',
+          method:  'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, email, phone: norm, amount }),
+          body:    JSON.stringify({ name, email, phone: norm, amount }),
         });
-        if (!res.ok) throw new Error('Server error — check your backend.');
+
         const data = await res.json();
+
         if (data.success) {
-          showPending(norm);
+          showMpesaPending(norm);
           pollMpesa(data.reference, amount, name);
         } else {
-          throw new Error(data.message || 'M-Pesa prompt could not be sent.');
+          errEl.textContent = data.error || 'Could not send M-Pesa prompt. Try again.';
+          btn.disabled = false;
+          btn.textContent = '📲 Send M-Pesa Prompt';
         }
+
       } catch (err) {
-        // Demo mode — backend not yet connected
-        console.warn('M-Pesa backend not connected — demo mode:', err.message);
-        showPending(norm);
+        // Demo mode — API not yet connected
+        console.warn('M-Pesa API not connected — demo mode:', err.message);
+        showMpesaPending(norm);
         setTimeout(() => showSuccess(amount, name, 'M-Pesa', 'DEMO-' + Date.now()), 5000);
       }
     });
   }
 
-  /* ── POLL UNTIL M-PESA COMPLETES (every 5s, max 60s) ── */
+  /* ── Poll until M-Pesa payment completes (every 5s, max 60s) ── */
   async function pollMpesa(ref, amount, name) {
     let tries = 0;
     const timer = setInterval(async () => {
       tries++;
       try {
-        const res  = await fetch('/api/mpesa-status?ref=' + ref);
+        const res  = await fetch('/api/mpesa-status?ref=' + encodeURIComponent(ref));
         const data = await res.json();
+
         if (data.status === 'success') {
           clearInterval(timer);
           showSuccess(amount, name, 'M-Pesa', ref);
         } else if (data.status === 'failed' || tries >= 12) {
           clearInterval(timer);
           resetMpesaForm(tries >= 12
-            ? 'Payment timed out. Check your phone and try again.'
-            : 'M-Pesa payment was cancelled. Please try again.');
+            ? 'Payment timed out. Please check your phone and try again.'
+            : data.message || 'M-Pesa payment was not completed. Please try again.');
         }
+        // else: still pending — keep polling
       } catch (_) { /* keep polling silently */ }
     }, 5000);
   }
 
-  /* ── UI STATE HELPERS ── */
-  function showPending(phone) {
+  function showMpesaPending(phone) {
     document.getElementById('mpesaForm').style.display = 'none';
     const pending = document.getElementById('mpesaPending');
     pending.style.display = 'block';
@@ -279,12 +201,91 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.textContent = '📲 Send M-Pesa Prompt';
   }
 
+  /* ══════════════════════════════════════════════
+     FLUTTERWAVE — CARD / DIASPORA PAYMENTS
+     Uses Flutterwave's hosted payment modal.
+     Accepts: Visa, Mastercard, M-Pesa, Bank Transfer.
+     Great for international / diaspora donors.
+
+     After payment, Flutterwave redirects back and
+     /api/flutterwave verifies the transaction
+     using your secret key (stored in Vercel env).
+     ══════════════════════════════════════════════ */
+  const cardForm = document.getElementById('cardForm');
+  if (cardForm) {
+    cardForm.addEventListener('submit', e => {
+      e.preventDefault();
+
+      const name   = document.getElementById('cardName').value.trim();
+      const email  = document.getElementById('cardEmail').value.trim();
+      const amount = getAmount();
+      const errEl  = document.getElementById('cardError');
+
+      if (!name || !email) { errEl.textContent = 'Please enter your name and email.'; return; }
+      if (!amount || amount < 100) { errEl.textContent = 'Minimum donation is KES 100.'; return; }
+      errEl.textContent = '';
+
+      // Demo mode if key is still placeholder
+      if (FLW_PUBLIC_KEY.includes('xxxx') || typeof FlutterwaveCheckout === 'undefined') {
+        showSuccess(amount, name, 'Card', 'DEMO-FLW-' + Date.now());
+        return;
+      }
+
+      // Open Flutterwave modal
+      FlutterwaveCheckout({
+        public_key:  FLW_PUBLIC_KEY,
+        tx_ref:      'SFS-FLW-' + Date.now(),
+        amount,
+        currency:    'KES',
+        payment_options: 'card, mpesa, banktransfer',
+        customer: { email, name },
+        customizations: {
+          title:       'Sister For Sister Kenya',
+          description: 'Empowering the girl child across Kenya',
+          logo:        window.location.origin + '/Images/logo.jpg',
+        },
+        callback(response) {
+          if (response.status === 'successful') {
+            // Verify on backend
+            fetch('/api/flutterwave', {
+              method:  'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body:    JSON.stringify({
+                transaction_id: response.transaction_id,
+                tx_ref:         response.tx_ref,
+                amount,
+                currency:       'KES',
+              }),
+            })
+            .then(r => r.json())
+            .then(data => {
+              if (data.success) {
+                showSuccess(amount, name, 'Card', response.flw_ref);
+              } else {
+                errEl.textContent = 'Payment received but verification failed. Contact us with your reference: ' + response.flw_ref;
+              }
+            })
+            .catch(() => {
+              // If verify fails but payment went through, still show success
+              showSuccess(amount, name, 'Card', response.flw_ref);
+            });
+          }
+        },
+        onclose() {
+          errEl.textContent = 'Payment window closed. Click "Donate by Card" to try again.';
+        },
+      });
+    });
+  }
+
+  /* ── SHARED SUCCESS STATE ── */
   function showSuccess(amount, name, method, ref) {
     ['.donate-intro', '.pay-tabs-bar', '.amount-section', '.pay-panels', '#mpesaPending']
       .forEach(sel => {
         const el = document.querySelector(sel);
         if (el) el.style.display = 'none';
       });
+
     const s = document.getElementById('donateSuccess');
     s.style.display = 'block';
     s.querySelector('.s-name').textContent   = name.split(' ')[0];
