@@ -141,7 +141,7 @@ section { padding: 6rem 4rem; }
 .help-way p { font-size: 0.82rem; color: rgba(255,255,255,0.65); line-height: 1.5; }
 .donate-right { background: #111; padding: 6rem 4rem; display: flex; flex-direction: column; justify-content: center; }
 .donate-right .section-title { color: var(--white); margin-bottom: 0.4rem; font-size: 1.8rem; }
-/* ── DONATE: amount + paystack UI ── */
+/* ── DONATE: amount + payment UI ── */
 .donate-intro { margin-bottom: 1.25rem; }
 .donate-intro > p { font-size: 0.85rem; color: rgba(255,255,255,0.55); margin-top: 0.35rem; }
 .amount-section { margin-bottom: 1.25rem; }
@@ -165,7 +165,7 @@ section { padding: 6rem 4rem; }
 .donate-cta { width: 100%; padding: 0.95rem; border-radius: 3rem; background: var(--pink); color: var(--white); font-family: inherit; font-size: 1rem; font-weight: 700; border: none; cursor: pointer; transition: background 0.2s, transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 20px rgba(232,0,125,0.35); display: block; text-align: center; }
 .donate-cta:hover { background: var(--pink-dark); transform: translateY(-2px); box-shadow: 0 6px 28px rgba(232,0,125,0.5); }
 .donate-cta:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-.paystack-note { font-size: 0.75rem; color: rgba(255,255,255,0.3); text-align: center; margin-top: 0.85rem; line-height: 1.5; }
+.card-note { font-size: 0.75rem; color: rgba(255,255,255,0.3); text-align: center; margin-top: 0.85rem; line-height: 1.5; }
 .mpesa-pulse { font-size: 1.4rem; color: var(--pink-light); letter-spacing: 6px; margin-top: 1.25rem; animation: pulse 1.2s ease-in-out infinite; }
 @keyframes pulse { 0%,100% { opacity: 0.25; } 50% { opacity: 1; } }
 
