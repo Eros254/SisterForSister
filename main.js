@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ── SCROLL REVEAL ── */
   const revealEls = document.querySelectorAll(
-    '.program-card, .impact-card, .help-way, .contact-item, .mission-item'
+    '.program-card, .impact-card, .help-way, .contact-item, .mission-item, .story-card, .article-card'
   );
   revealEls.forEach(el => {
     el.style.opacity = '0';
