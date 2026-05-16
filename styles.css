@@ -16,7 +16,15 @@ html { scroll-behavior: smooth; }
 body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--black); overflow-x: hidden; }
 
 /* ── NAV ── */
-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; align-items: center; justify-content: space-between; padding: 0.85rem 4rem; background: rgba(255,255,255,0.96); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); transition: box-shadow 0.3s; }
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; 
+      display: flex; 
+      align-items: center; 
+      justify-content: space-between; 
+      padding: 0.85rem 4rem; 
+      background: rgba(255,255,255,0.96); 
+      backdrop-filter: blur(14px); 
+      border-bottom: 1px solid var(--border); 
+      transition: box-shadow 0.3s; }
 nav.scrolled { box-shadow: 0 2px 24px rgba(232,0,125,0.1); }
 .nav-logo { display: flex; align-items: center; gap: 0.6rem; }
 .nav-logo img { height: 42px; width: 42px; object-fit: contain; }
@@ -150,6 +158,97 @@ section { padding: 6rem 4rem; }
 .article-meta { margin-top: 1rem; font-size: 0.78rem; font-weight: 600; color: var(--pink); }
 .article-featured .article-meta { color: var(--pink-light); }
 
+/* ── MERCHANDISE ── */
+.merch-section { background: linear-gradient(180deg, #fff7fb 0%, #ffffff 100%); }
+.merch-intro { max-width: 760px; margin-bottom: 2rem; }
+.merch-intro p { font-size: 0.96rem; line-height: 1.8; color: var(--grey); }
+.merch-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+.merch-card {
+  position: relative;
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 1.4rem;
+  padding: 1.5rem;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.05);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.merch-card:hover { transform: translateY(-5px); box-shadow: 0 18px 42px rgba(0,0,0,0.09); }
+.merch-card.featured {
+  grid-column: span 2;
+  background: linear-gradient(135deg, var(--pink) 0%, var(--pink-dark) 100%);
+  border-color: rgba(232,0,125,0.4);
+}
+.merch-card.premium {
+  background: linear-gradient(180deg, #1a1a1a 0%, #2b1823 100%);
+  border-color: rgba(255,255,255,0.08);
+}
+.merch-badge {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  background: var(--pink-pale);
+  color: var(--pink);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.merch-card.featured .merch-badge {
+  background: rgba(255,255,255,0.18);
+  color: var(--white);
+}
+.merch-card.premium .merch-badge {
+  background: rgba(255,255,255,0.12);
+  color: var(--pink-light);
+}
+.merch-icon { font-size: 2.6rem; margin-bottom: 0.9rem; }
+.merch-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.28rem;
+  line-height: 1.25;
+  margin-bottom: 0.65rem;
+  color: var(--black);
+}
+.merch-card.featured h3,
+.merch-card.premium h3 { color: var(--white); }
+.merch-card p {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--grey);
+  margin-bottom: 1rem;
+}
+.merch-card.featured p { color: rgba(255,255,255,0.86); }
+.merch-card.premium p { color: rgba(255,255,255,0.74); }
+.merch-meta {
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 0.85rem;
+}
+.merch-card.featured .merch-meta,
+.merch-card.premium .merch-meta { color: var(--white); }
+.merch-purpose {
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--pink);
+  font-weight: 600;
+}
+.merch-card.featured .merch-purpose { color: rgba(255,255,255,0.92); }
+.merch-card.premium .merch-purpose { color: var(--pink-light); }
+.merch-note {
+  margin-top: 1.75rem;
+  padding: 1.1rem 1.25rem;
+  border-radius: 1rem;
+  background: var(--pink-pale);
+  border: 1px solid rgba(232,0,125,0.18);
+}
+.merch-note p {
+  font-size: 0.87rem;
+  line-height: 1.7;
+  color: var(--charcoal);
+}
+
 /* ── DONATE / PAYMENT ── */
 .donate-section { background: var(--black); display: grid; grid-template-columns: 1fr 1fr; }
 .donate-left { padding: 6rem 4rem; display: flex; flex-direction: column; justify-content: center; }
@@ -244,6 +343,8 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 3.5
   .impact-grid { grid-template-columns: 1fr 1fr; }
   .articles-grid { grid-template-columns: 1fr; }
   .article-featured { grid-column: span 1; }
+  .merch-grid { grid-template-columns: 1fr; }
+  .merch-card.featured { grid-column: span 1; }
   .donate-section { grid-template-columns: 1fr; }
   .donate-left, .donate-right { padding: 3.5rem 1.5rem; }
   .contact-grid { grid-template-columns: 1fr; }
