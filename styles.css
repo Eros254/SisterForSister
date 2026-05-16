@@ -95,6 +95,25 @@ section { padding: 6rem 4rem; }
 .story-card h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--black); margin-bottom: 0.55rem; }
 .story-card p { font-size: 0.88rem; line-height: 1.7; color: var(--grey); }
 
+/* ── PRIORITIES ── */
+.priorities-section { background: var(--white); }
+.priorities-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1rem; margin-top: 2.25rem; }
+.priority-card {
+  background: linear-gradient(180deg, #fff 0%, #fff7fb 100%);
+  border: 1px solid rgba(0,0,0,0.07);
+  border-radius: 1.2rem;
+  padding: 1.4rem;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.04);
+}
+.priority-icon { font-size: 1.9rem; margin-bottom: 0.8rem; }
+.priority-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.12rem;
+  margin-bottom: 0.5rem;
+  color: var(--black);
+}
+.priority-card p { font-size: 0.86rem; line-height: 1.7; color: var(--grey); }
+
 /* ── PROGRAMS ── */
 .programs-section { background: var(--light); }
 .programs-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem; }
@@ -113,6 +132,57 @@ section { padding: 6rem 4rem; }
 .program-card.featured .card-body p { color: rgba(255,255,255,0.85); }
 .card-amount { margin-top: 0.85rem; font-weight: 700; font-size: 0.95rem; color: var(--pink); }
 .program-card.featured .card-amount { color: rgba(255,255,255,0.9); }
+
+/* ── SUPPORT PATHS ── */
+.support-paths-section { background: linear-gradient(180deg, #fff 0%, #fff8fb 100%); }
+.support-paths-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.support-path-card {
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,0.07);
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+}
+.support-path-card.feature {
+  background: linear-gradient(135deg, var(--pink) 0%, var(--pink-dark) 100%);
+  border-color: rgba(232,0,125,0.3);
+}
+.support-tag {
+  display: inline-block;
+  margin-bottom: 0.9rem;
+  padding: 0.28rem 0.7rem;
+  border-radius: 999px;
+  background: var(--pink-pale);
+  color: var(--pink);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.support-path-card.feature .support-tag {
+  background: rgba(255,255,255,0.16);
+  color: var(--white);
+}
+.support-path-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  margin-bottom: 0.55rem;
+  color: var(--black);
+}
+.support-path-card.feature h3 { color: var(--white); }
+.support-path-card p {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--grey);
+  margin-bottom: 1rem;
+}
+.support-path-card.feature p { color: rgba(255,255,255,0.82); }
+.support-path-card a {
+  color: var(--pink);
+  font-weight: 700;
+  text-decoration: none;
+}
+.support-path-card.feature a { color: var(--white); }
 
 /* ── NEEDS ── */
 .needs-section { background: var(--white); }
@@ -143,6 +213,54 @@ section { padding: 6rem 4rem; }
 .impact-card .num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; color: var(--pink); line-height: 1; margin-bottom: 0.35rem; }
 .impact-card .lbl { font-size: 0.8rem; color: var(--grey); font-weight: 500; line-height: 1.35; }
 
+/* ── STORY HIGHLIGHT ── */
+.story-highlight-section { background: var(--white); }
+.story-highlight-card {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 1.4rem;
+  background: var(--charcoal);
+  border-radius: 1.5rem;
+  padding: 2rem;
+}
+.story-highlight-copy .section-label { color: var(--pink-light); }
+.story-highlight-copy .section-title { color: var(--white); }
+.story-highlight-copy .section-sub { color: rgba(255,255,255,0.7); max-width: 100%; }
+.story-quote {
+  margin-top: 1.4rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: var(--pink-light);
+}
+.story-attrib {
+  margin-top: 0.8rem;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.45);
+}
+.story-highlight-points {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.highlight-point {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 1rem;
+  padding: 1rem 1.1rem;
+}
+.highlight-point h3 {
+  color: var(--white);
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+.highlight-point p {
+  font-size: 0.84rem;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.68);
+}
+
 /* ── ARTICLES ── */
 .articles-section { background: var(--white); }
 .articles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 2.5rem; }
@@ -157,6 +275,24 @@ section { padding: 6rem 4rem; }
 .article-featured p { color: rgba(255,255,255,0.72); }
 .article-meta { margin-top: 1rem; font-size: 0.78rem; font-weight: 600; color: var(--pink); }
 .article-featured .article-meta { color: var(--pink-light); }
+
+/* ── TRUST ── */
+.trust-section { background: var(--light); }
+.trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.trust-card {
+  background: var(--white);
+  border-radius: 1.25rem;
+  border: 1px solid rgba(0,0,0,0.07);
+  padding: 1.5rem;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.04);
+}
+.trust-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.14rem;
+  color: var(--black);
+  margin-bottom: 0.5rem;
+}
+.trust-card p { font-size: 0.87rem; line-height: 1.7; color: var(--grey); }
 
 /* ── MERCHANDISE ── */
 .merch-section { background: linear-gradient(180deg, #fff7fb 0%, #ffffff 100%); }
@@ -266,6 +402,38 @@ section { padding: 6rem 4rem; }
 /* ── DONATE: amount + payment UI ── */
 .donate-intro { margin-bottom: 1.25rem; }
 .donate-intro > p { font-size: 0.85rem; color: rgba(255,255,255,0.55); margin-top: 0.35rem; }
+.giving-mode-wrap { margin-bottom: 1.25rem; }
+.giving-mode-bar {
+  display: flex;
+  gap: 0.5rem;
+  background: rgba(255,255,255,0.05);
+  border-radius: 0.9rem;
+  padding: 0.35rem;
+  margin-bottom: 0.7rem;
+}
+.giving-mode-btn {
+  flex: 1;
+  border: none;
+  border-radius: 0.65rem;
+  background: transparent;
+  color: rgba(255,255,255,0.55);
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 0.75rem 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.giving-mode-btn.active {
+  background: var(--pink);
+  color: var(--white);
+  box-shadow: 0 2px 12px rgba(232,0,125,0.35);
+}
+.giving-mode-note {
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.55);
+}
 .amount-section { margin-bottom: 1.25rem; }
 .amount-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0.6rem; }
 .amount-btn { padding: 0.65rem; border-radius: 0.75rem; border: 2px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.05); color: var(--white); font-family: inherit; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.2s; text-align: center; }
@@ -338,11 +506,15 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 3.5
   .mission-band { grid-template-columns: 1fr; padding: 3rem 1.5rem; }
   .story-grid { grid-template-columns: 1fr; }
   .story-copy { grid-column: span 1; }
+  .priorities-grid { grid-template-columns: 1fr; }
   .programs-grid { grid-template-columns: 1fr; }
   .program-card.featured { grid-column: span 1; }
+  .support-paths-grid { grid-template-columns: 1fr; }
   .impact-grid { grid-template-columns: 1fr 1fr; }
+  .story-highlight-card { grid-template-columns: 1fr; padding: 1.5rem; }
   .articles-grid { grid-template-columns: 1fr; }
   .article-featured { grid-column: span 1; }
+  .trust-grid { grid-template-columns: 1fr; }
   .merch-grid { grid-template-columns: 1fr; }
   .merch-card.featured { grid-column: span 1; }
   .donate-section { grid-template-columns: 1fr; }
@@ -352,6 +524,7 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 3.5
   section { padding: 4rem 1.5rem; }
   .programs-header { flex-direction: column; align-items: flex-start; }
   .partners-band { padding: 3rem 1.5rem; }
+  .giving-mode-bar { flex-direction: column; }
   .amount-grid { grid-template-columns: repeat(2, 1fr); }
   .form-row { grid-template-columns: 1fr; }
 }
