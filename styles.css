@@ -338,7 +338,46 @@ section { padding: 6rem 4rem; }
   background: rgba(255,255,255,0.12);
   color: var(--pink-light);
 }
-.merch-icon { font-size: 2.6rem; margin-bottom: 0.9rem; }
+.merch-gallery {
+  display: grid;
+  gap: 0.85rem;
+  margin-bottom: 1.2rem;
+}
+.merch-gallery-two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.merch-gallery-three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.merch-photo {
+  margin: 0;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(0,0,0,0.08);
+}
+.merch-photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  background: #f5f5f5;
+}
+.merch-photo figcaption {
+  padding: 0.65rem 0.75rem 0.75rem;
+  text-align: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+  background: rgba(255,255,255,0.92);
+}
+.merch-card.featured .merch-photo,
+.merch-card.premium .merch-photo {
+  border-color: rgba(255,255,255,0.14);
+}
+.merch-card.featured .merch-photo figcaption,
+.merch-card.premium .merch-photo figcaption {
+  background: rgba(255,255,255,0.14);
+  color: var(--white);
+}
 .merch-card h3 {
   font-family: 'Playfair Display', serif;
   font-size: 1.28rem;
@@ -517,6 +556,7 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 3.5
   .trust-grid { grid-template-columns: 1fr; }
   .merch-grid { grid-template-columns: 1fr; }
   .merch-card.featured { grid-column: span 1; }
+  .merch-gallery-three { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .donate-section { grid-template-columns: 1fr; }
   .donate-left, .donate-right { padding: 3.5rem 1.5rem; }
   .contact-grid { grid-template-columns: 1fr; }
