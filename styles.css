@@ -432,7 +432,8 @@ section { padding: 6rem 4rem; }
 .merch-card.featured .merch-order-label,
 .merch-card.premium .merch-order-label { color: rgba(255,255,255,0.86); }
 .merch-select,
-.merch-other-color {
+.merch-other-color,
+.merch-other-size {
   width: 100%;
   border-radius: 0.9rem;
   border: 1px solid rgba(0,0,0,0.12);
@@ -445,21 +446,26 @@ section { padding: 6rem 4rem; }
   transition: border-color 0.2s, box-shadow 0.2s, opacity 0.2s;
 }
 .merch-select:focus,
-.merch-other-color:focus {
+.merch-other-color:focus,
+.merch-other-size:focus {
   border-color: var(--pink);
   box-shadow: 0 0 0 3px rgba(232,0,125,0.12);
 }
-.merch-other-color {
+.merch-other-color,
+.merch-other-size {
   margin-top: 0.75rem;
 }
-.merch-other-color:disabled {
+.merch-other-color:disabled,
+.merch-other-size:disabled {
   opacity: 0.55;
   cursor: not-allowed;
 }
 .merch-card.featured .merch-select,
 .merch-card.featured .merch-other-color,
+.merch-card.featured .merch-other-size,
 .merch-card.premium .merch-select,
-.merch-card.premium .merch-other-color {
+.merch-card.premium .merch-other-color,
+.merch-card.premium .merch-other-size {
   background: rgba(255,255,255,0.12);
   border-color: rgba(255,255,255,0.18);
   color: var(--white);
@@ -468,9 +474,14 @@ section { padding: 6rem 4rem; }
 .merch-card.premium .merch-select option {
   color: var(--charcoal);
 }
+.merch-order-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 0.9rem;
+}
 .merch-order-btn {
   width: 100%;
-  margin-top: 0.9rem;
   border: none;
   border-radius: 999px;
   background: var(--pink);
@@ -487,6 +498,29 @@ section { padding: 6rem 4rem; }
   transform: translateY(-2px);
   background: var(--pink-dark);
   box-shadow: 0 14px 34px rgba(232,0,125,0.3);
+}
+.merch-order-email {
+  background: transparent;
+  color: var(--pink);
+  border: 2px solid rgba(232,0,125,0.25);
+  box-shadow: none;
+}
+.merch-order-email:hover {
+  background: rgba(232,0,125,0.08);
+  color: var(--pink-dark);
+  border-color: rgba(232,0,125,0.45);
+  box-shadow: none;
+}
+.merch-card.featured .merch-order-email,
+.merch-card.premium .merch-order-email {
+  color: var(--white);
+  border-color: rgba(255,255,255,0.2);
+}
+.merch-card.featured .merch-order-email:hover,
+.merch-card.premium .merch-order-email:hover {
+  background: rgba(255,255,255,0.12);
+  color: var(--white);
+  border-color: rgba(255,255,255,0.34);
 }
 .merch-order-note {
   margin: 0.75rem 0 0;
@@ -644,6 +678,7 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 3.5
   .merch-grid { grid-template-columns: 1fr; }
   .merch-card.featured { grid-column: span 1; }
   .merch-gallery-three { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .merch-order-actions { grid-template-columns: 1fr; }
   .donate-section { grid-template-columns: 1fr; }
   .donate-left, .donate-right { padding: 3.5rem 1.5rem; }
   .contact-grid { grid-template-columns: 1fr; }

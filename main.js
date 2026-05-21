@@ -10,6 +10,7 @@
    Get it from: Flutterwave Dashboard → Settings → API Keys
    Replace the placeholder below once you have it.        */
 const FLW_PUBLIC_KEY = 'FLWPUBK-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-X'; // ← Your Flutterwave public key
+const MERCH_WHATSAPP_NUMBER = '254716682692';
 
 document.addEventListener('DOMContentLoaded', () => {
   let givingMode = 'once';
@@ -142,7 +143,27 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         otherInput.disabled = true;
         otherInput.value = '';
-        if (note) note.textContent = 'Choose your preferred color before sending your order request.';
+        if (note) note.textContent = 'Choose your preferred color and size, then order through WhatsApp or email.';
+      }
+    });
+  });
+
+  document.querySelectorAll('.merch-size-select').forEach(select => {
+    select.addEventListener('change', () => {
+      const card = select.closest('.merch-card');
+      const otherInput = card ? card.querySelector('.merch-other-size') : null;
+      const note = card ? card.querySelector('.merch-order-note') : null;
+
+      if (!otherInput) return;
+
+      if (select.value === 'Other') {
+        otherInput.disabled = false;
+        otherInput.focus();
+        if (note) note.textContent = 'Tell us the exact size you want, then send your order request.';
+      } else {
+        otherInput.disabled = true;
+        otherInput.value = '';
+        if (note) note.textContent = 'Choose your preferred color and size, then order through WhatsApp or email.';
       }
     });
   });
@@ -151,6 +172,8 @@ document.addEventListener('DOMContentLoaded', () => {
     button.addEventListener('click', () => {
       const select = document.getElementById(button.dataset.select);
       const otherInput = document.getElementById(button.dataset.other);
+      const sizeSelect = document.getElementById(button.dataset.sizeSelect);
+      const sizeOtherInput = document.getElementById(button.dataset.sizeOther);
       const card = button.closest('.merch-card');
       const note = card ? card.querySelector('.merch-order-note') : null;
 
@@ -172,6 +195,22 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
+      if (!sizeSelect || !sizeSelect.value) {
+        if (note) note.textContent = 'Please choose a size before placing your order.';
+        if (sizeSelect) sizeSelect.focus();
+        return;
+      }
+
+      const size = sizeSelect.value === 'Other'
+        ? (sizeOtherInput ? sizeOtherInput.value.trim() : '')
+        : sizeSelect.value;
+
+      if (sizeSelect.value === 'Other' && !size) {
+        if (note) note.textContent = 'Please type your preferred size before placing your order.';
+        if (sizeOtherInput) sizeOtherInput.focus();
+        return;
+      }
+
       const product = button.dataset.product;
       const price = button.dataset.price;
       const subject = `Merchandise Order - ${product}`;
@@ -180,6 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
         '',
         `I would like to order: ${product}`,
         `Preferred color: ${color}`,
+        `Preferred size: ${size}`,
         `Price shown on website: ${price}`,
         '',
         'Please share the next steps for payment, sizing, and delivery.',
@@ -187,7 +227,14 @@ document.addEventListener('DOMContentLoaded', () => {
         'Thank you.'
       ].join('\n');
 
-      if (note) note.textContent = `Selected color: ${color}. Your order enquiry is ready to send.`;
+      if (note) note.textContent = `Selected color: ${color}. Selected size: ${size}. Your ${button.dataset.channel === 'whatsapp' ? 'WhatsApp' : 'email'} order message is ready.`;
+
+      if (button.dataset.channel === 'whatsapp') {
+        const whatsappText = body.replace('Hello Sister For Sister Kenya,', 'Hello Sister For Sister Kenya, I would like to place a merchandise order.');
+        window.open(`https://wa.me/${MERCH_WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappText)}`, '_blank', 'noopener');
+        return;
+      }
+
       window.location.href = `mailto:sisterforsister94@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     });
   });
