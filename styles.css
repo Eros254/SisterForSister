@@ -411,6 +411,93 @@ section { padding: 6rem 4rem; }
 }
 .merch-card.featured .merch-purpose { color: rgba(255,255,255,0.92); }
 .merch-card.premium .merch-purpose { color: var(--pink-light); }
+.merch-order {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+.merch-card.featured .merch-order,
+.merch-card.premium .merch-order {
+  border-top-color: rgba(255,255,255,0.16);
+}
+.merch-order-label {
+  display: block;
+  margin-bottom: 0.45rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+}
+.merch-card.featured .merch-order-label,
+.merch-card.premium .merch-order-label { color: rgba(255,255,255,0.86); }
+.merch-select,
+.merch-other-color {
+  width: 100%;
+  border-radius: 0.9rem;
+  border: 1px solid rgba(0,0,0,0.12);
+  background: rgba(255,255,255,0.96);
+  color: var(--charcoal);
+  padding: 0.82rem 1rem;
+  font-size: 0.92rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s, opacity 0.2s;
+}
+.merch-select:focus,
+.merch-other-color:focus {
+  border-color: var(--pink);
+  box-shadow: 0 0 0 3px rgba(232,0,125,0.12);
+}
+.merch-other-color {
+  margin-top: 0.75rem;
+}
+.merch-other-color:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.merch-card.featured .merch-select,
+.merch-card.featured .merch-other-color,
+.merch-card.premium .merch-select,
+.merch-card.premium .merch-other-color {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.18);
+  color: var(--white);
+}
+.merch-card.featured .merch-select option,
+.merch-card.premium .merch-select option {
+  color: var(--charcoal);
+}
+.merch-order-btn {
+  width: 100%;
+  margin-top: 0.9rem;
+  border: none;
+  border-radius: 999px;
+  background: var(--pink);
+  color: var(--white);
+  padding: 0.95rem 1.1rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  box-shadow: 0 10px 28px rgba(232,0,125,0.24);
+}
+.merch-order-btn:hover {
+  transform: translateY(-2px);
+  background: var(--pink-dark);
+  box-shadow: 0 14px 34px rgba(232,0,125,0.3);
+}
+.merch-order-note {
+  margin: 0.75rem 0 0;
+  font-size: 0.78rem;
+  line-height: 1.55;
+  color: var(--grey);
+}
+.merch-card.featured .merch-order-note,
+.merch-card.premium .merch-order-note {
+  color: rgba(255,255,255,0.72);
+}
 .merch-note {
   margin-top: 1.75rem;
   padding: 1.1rem 1.25rem;

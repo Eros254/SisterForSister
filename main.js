@@ -126,6 +126,72 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  /* ── MERCHANDISE COLOR SELECTION ── */
+  document.querySelectorAll('.merch-color-select').forEach(select => {
+    select.addEventListener('change', () => {
+      const card = select.closest('.merch-card');
+      const otherInput = card ? card.querySelector('.merch-other-color') : null;
+      const note = card ? card.querySelector('.merch-order-note') : null;
+
+      if (!otherInput) return;
+
+      if (select.value === 'Other') {
+        otherInput.disabled = false;
+        otherInput.focus();
+        if (note) note.textContent = 'Tell us the exact color you want, then send your order request.';
+      } else {
+        otherInput.disabled = true;
+        otherInput.value = '';
+        if (note) note.textContent = 'Choose your preferred color before sending your order request.';
+      }
+    });
+  });
+
+  document.querySelectorAll('.merch-order-btn').forEach(button => {
+    button.addEventListener('click', () => {
+      const select = document.getElementById(button.dataset.select);
+      const otherInput = document.getElementById(button.dataset.other);
+      const card = button.closest('.merch-card');
+      const note = card ? card.querySelector('.merch-order-note') : null;
+
+      if (!select) return;
+
+      if (!select.value) {
+        if (note) note.textContent = 'Please choose a color before placing your order.';
+        select.focus();
+        return;
+      }
+
+      const color = select.value === 'Other'
+        ? (otherInput ? otherInput.value.trim() : '')
+        : select.value;
+
+      if (select.value === 'Other' && !color) {
+        if (note) note.textContent = 'Please type your preferred color before placing your order.';
+        if (otherInput) otherInput.focus();
+        return;
+      }
+
+      const product = button.dataset.product;
+      const price = button.dataset.price;
+      const subject = `Merchandise Order - ${product}`;
+      const body = [
+        'Hello Sister For Sister Kenya,',
+        '',
+        `I would like to order: ${product}`,
+        `Preferred color: ${color}`,
+        `Price shown on website: ${price}`,
+        '',
+        'Please share the next steps for payment, sizing, and delivery.',
+        '',
+        'Thank you.'
+      ].join('\n');
+
+      if (note) note.textContent = `Selected color: ${color}. Your order enquiry is ready to send.`;
+      window.location.href = `mailto:sisterforsister94@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+  });
+
   function getAmount() {
     const panel = getActivePanelKey();
     const activePanel = document.querySelector('.pay-panel.active');
