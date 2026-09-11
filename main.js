@@ -12,9 +12,148 @@
 const FLW_PUBLIC_KEY = 'FLWPUBK-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-X'; // ← Your Flutterwave public key
 const MERCH_WHATSAPP_NUMBER = '254716682692';
 
+/* =================================================
+   SHOP — product catalogue (rendered on shop.html)
+   ================================================= */
+const SHOP_PRODUCTS = [
+  {
+    id: 'tee',
+    name: 'Branded T-Shirts',
+    tag: 'Smart, comfortable everyday essentials',
+    badge: 'Best Seller',
+    featured: true,
+    price: 'KShs 1,500',
+    purpose: 'Funds outreach, campaign visibility, and community engagement activities.',
+    colors: [
+      { label: 'Pink', img: 'Images/pinkTee.jpeg' },
+      { label: 'Black', img: 'Images/blackTee.jpeg' },
+      { label: 'White', img: 'Images/whiteTee.jpeg' },
+    ],
+  },
+  {
+    id: 'hoodie',
+    name: 'Signature Hoodies',
+    tag: 'Quality branded wear with high visibility',
+    badge: 'Premium Support',
+    premium: true,
+    price: 'KShs 3,500',
+    purpose: 'Funds operational essentials including transport, internet, and coordination.',
+    colors: [
+      { label: 'Pink', img: 'Images/pinkHoodie.jpeg' },
+      { label: 'Black', img: 'Images/blackHoodie.jpeg' },
+    ],
+  },
+  {
+    id: 'polo',
+    name: 'Branded Polo Shirts',
+    tag: 'Clean, versatile polos for everyday wear',
+    badge: 'Everyday Wear',
+    premium: false,
+    price: 'KShs 2,000',
+    purpose: 'Funds volunteer visibility, field presence, and engagement on the ground.',
+    colors: [
+      { label: 'Pink', img: 'Images/pinkPolo.jpeg' },
+      { label: 'Black', img: 'Images/blackPolo.jpeg' },
+      { label: 'White', img: 'Images/whitePolo.jpeg' },
+    ],
+  },
+];
+
+const SIZES = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
+
+function shopGallery(product) {
+  const cls = product.colors.length === 2 ? 'merch-gallery-two' : 'merch-gallery-three';
+  const figs = product.colors
+    .map(
+      c =>
+        `<figure class="merch-photo"><img src="${c.img}" alt="${c.label} Sister for Sister Kenya ${product.name}" loading="lazy" width="300" height="375" /><figcaption>${c.label}</figcaption></figure>`
+    )
+    .join('');
+  return `<div class="merch-gallery ${cls}">${figs}</div>`;
+}
+
+function shopCard(product) {
+  const uid = product.id;
+  const sizes = ['<option value="">Select a size</option>']
+    .concat(SIZES.map(s => `<option value="${s}">${s}</option>`))
+    .join('')
+    .concat('<option value="Other">Other</option>');
+  const colors = ['<option value="">Select a color</option>']
+    .concat(product.colors.map(c => `<option value="${c.label}">${c.label}</option>`))
+    .join('')
+    .concat('<option value="Other">Other</option>');
+
+  const cardClass = ['merch-card']
+    .concat(product.featured ? 'featured' : [])
+    .concat(product.premium ? 'premium' : [])
+    .join(' ');
+
+  return `
+    <article class="${cardClass}">
+      <span class="merch-badge">${product.badge}</span>
+      ${shopGallery(product)}
+      <h3>${product.name}</h3>
+      <p class="merch-tag">${product.tag}</p>
+      <div class="merch-meta">Price: <strong>${product.price}</strong></div>
+      <div class="merch-purpose">${product.purpose}</div>
+      <div class="merch-order">
+        <label class="merch-order-label" for="${uid}-color">Choose Color</label>
+        <select class="merch-select merch-color-select" id="${uid}-color"
+          data-product="${product.name}" data-price="${product.price}">
+          ${colors}
+        </select>
+        <input class="merch-other-color" id="${uid}-color-other" type="text"
+          placeholder="Enter preferred color" aria-label="Other color" disabled />
+        <label class="merch-order-label" for="${uid}-size">Choose Size</label>
+        <select class="merch-select merch-size-select" id="${uid}-size">
+          ${sizes}
+        </select>
+        <input class="merch-other-size" id="${uid}-size-other" type="text"
+          placeholder="Enter preferred size" aria-label="Other size" disabled />
+        <label class="merch-order-label" for="${uid}-qty">Quantity</label>
+        <input class="merch-quantity" id="${uid}-qty" type="number" min="1" step="1"
+          value="1" placeholder="Enter quantity" aria-label="Quantity" />
+        <div class="merch-order-actions">
+          <button type="button" class="merch-order-btn merch-order-whatsapp"
+            data-channel="whatsapp" data-product="${product.name}" data-price="${product.price}"
+            data-select="${uid}-color" data-other="${uid}-color-other"
+            data-size-select="${uid}-size" data-size-other="${uid}-size-other">
+            Order via WhatsApp
+          </button>
+          <button type="button" class="merch-order-btn merch-order-email"
+            data-channel="email" data-product="${product.name}" data-price="${product.price}"
+            data-select="${uid}-color" data-other="${uid}-color-other"
+            data-size-select="${uid}-size" data-size-other="${uid}-size-other">
+            Order via Email
+          </button>
+        </div>
+        <p class="merch-order-note">Choose your preferred color and size, then order through WhatsApp or email.</p>
+      </div>
+    </article>
+  `;
+}
+
+function buildShop() {
+  const grid = document.getElementById('shopGrid');
+  if (!grid) return;
+  grid.innerHTML = SHOP_PRODUCTS.map(shopCard).join('');
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   let givingMode = 'once';
   const selectedAmounts = { mpesa: 2500, card: 25 };
+
+  /* ── MARK ACTIVE NAV LINK FOR CURRENT PAGE ── */
+  const currentPage = (location.pathname.split('/').pop() || 'index.html').replace(/\/$/, '') || 'index.html';
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    const href = (a.getAttribute('href') || '').split('#')[0];
+    if (!href) return;
+    const target = href.split('/').pop() || 'index.html';
+    if (target === currentPage) a.classList.add('active');
+  });
+
+  /* ── BUILD SHOP GRID (shop.html) BEFORE BINDING ── */
+  buildShop();
 
   /* ── NAV SCROLL SHADOW ── */
   const nav = document.getElementById('mainNav');
@@ -45,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ── SCROLL REVEAL ── */
   const revealEls = document.querySelectorAll(
-    '.program-card, .impact-card, .help-way, .contact-item, .mission-item, .story-card, .article-card'
+    '.program-card, .impact-card, .help-way, .contact-item, .mission-item, .story-card, .article-card, .merch-card'
   );
   revealEls.forEach(el => {
     el.style.opacity = '0';
@@ -413,7 +552,7 @@ document.addEventListener('DOMContentLoaded', () => {
         customizations: {
           title:       'Sister For Sister Kenya',
           description: 'Empowering the girl child across Kenya',
-          logo:        window.location.origin + '/Images/logo.jpg',
+          logo:        window.location.origin + 'Images/logo.jpg',
         },
         callback(response) {
           if (response.status === 'successful') {

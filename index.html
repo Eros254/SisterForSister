@@ -1,817 +1,1330 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sister For Sister Kenya</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="styles.css"/>
-  <!-- Flutterwave.js — handles secure card & international payments -->
-  <script src="https://checkout.flutterwave.com/v3.js"></script>
-</head>
-<body>
-
-<!-- NAV -->
-<nav id="mainNav">
-  <div class="nav-logo">
-    <img src="/Images/logo.jpg" alt="Sister For Sister Kenya"/>
-    <span>Sister For Sister<em>Kenya</em></span>
-  </div>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#programs">Programs</a></li>
-    <li><a href="#needs">Our Needs</a></li>
-    <li><a href="#impact">Impact</a></li>
-    <li><a href="#merchandise">Merchandise</a></li>
-    <li><a href="#news">News</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#donate" class="nav-cta">Donate</a></li>
-  </ul>
-  <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#about">About</a>
-  <a href="#programs">Programs</a>
-  <a href="#needs">Our Needs</a>
-  <a href="#impact">Impact</a>
-  <a href="#merchandise">Merchandise</a>
-  <a href="#news">News</a>
-  <a href="#contact">Contact</a>
-  <a href="#donate" class="btn-pink-mob">Donate Now</a>
-</div>
-
-<!-- HERO -->
-<section class="hero" id="about">
-  <div class="hero-left">
-    <div class="hero-eyebrow">&#127472;&#127466; Registered NGO &middot; Since 2014</div>
-    <h1>Dignity, education, and<br/><span class="accent">opportunity</span><br/>for every girl</h1>
-    <p class="hero-desc">Sister For Sister Kenya is a registered non-profit organization advancing the wellbeing of girls and young women through education support, menstrual dignity, community partnerships, and practical pathways to long-term opportunity across Kenya.</p>
-    <div class="hero-actions">
-      <a href="#donate" class="btn-pink">Support Our Work</a>
-      <a href="#programs" class="btn-outline">Explore Programs</a>
-    </div>
-  </div>
-  <div class="hero-right">
-    <div class="hero-img-wrap">
-      <img src="/Images/About.jpg" alt="Girls supported by Sister For Sister Kenya"/>
-      <div class="hero-stat">
-        <div class="num">2014</div>
-        <div class="lbl">Founded</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Sister For Sister Kenya — a registered non-profit advancing dignity, education, and opportunity for girls and young women across Kenya since 2014. Donate, volunteer, or buy purpose-driven merchandise."
+    />
+    <meta name="theme-color" content="#E8007D" />
+    <title>Sister For Sister Kenya — Education, Dignity & Opportunity for Girls</title>
+    <link rel="icon" type="image/jpeg" href="Images/logo.jpg" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Flutterwave.js — handles secure card & international payments -->
+    <script src="https://checkout.flutterwave.com/v3.js"></script>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav id="mainNav">
+      <div class="nav-logo">
+        <img src="Images/logo.jpg" alt="Sister For Sister Kenya" />
+        <span>Sister For Sister<em>Kenya</em></span>
       </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- MISSION -->
-<div class="mission-band">
-  <div class="mission-item">
-    <div class="icon">&#127757;</div>
-    <h3>Our Mission</h3>
-    <p>To advance access to quality education, menstrual dignity, protection, and life-changing opportunity for girls and women in underserved communities across Kenya.</p>
-  </div>
-  <div class="mission-item">
-    <div class="icon">&#129309;</div>
-    <h3>Our Approach</h3>
-    <p>We work hand in hand with families, schools, community organizations, public institutions, and partners to deliver support that is practical, trusted, and rooted in local realities.</p>
-  </div>
-  <div class="mission-item">
-    <div class="icon">&#10024;</div>
-    <h3>Our Vision</h3>
-    <p>A Kenya where every girl can learn, thrive, lead, and pursue her future with dignity, confidence, and the support she deserves.</p>
-  </div>
-</div>
-
-<!-- STORY / BACKGROUND -->
-<section class="story-section">
-  <div class="story-grid">
-    <div class="story-copy">
-      <span class="section-label">Our Story</span>
-      <h2 class="section-title">A grassroots movement growing into lasting change</h2>
-      <p class="section-sub">Sister For Sister Kenya was registered in October 2014 and began with a simple but urgent response: helping girls stay in school with access to sanitary towels and educational support. Over time, that response has grown into a broader community-centered organization supporting children, caregivers, adolescents, and young women through education, dignity, advocacy, practical assistance, and partnership-led development.</p>
-    </div>
-    <figure class="story-photo-card">
-      <!-- <img src="/Images/childrens1.jpg" alt="Children taking part in Sister For Sister Kenya support activities"> -->
-    </figure>
-    <div class="story-card">
-      <h3>Why we exist</h3>
-      <p>Too many girls still face barriers that should never define their future: poverty, interrupted schooling, lack of sanitary support, and limited access to safe opportunities. We exist to help remove those barriers.</p>
-    </div>
-    <div class="story-card">
-      <h3>How we work</h3>
-      <p>We listen first, partner locally, and respond practically. Our work combines direct support with community mobilization, referrals, advocacy, and relationship-building so impact can continue beyond a single intervention.</p>
-    </div>
-    <div class="story-card">
-      <h3>Who we work with</h3>
-      <p>We collaborate with communities, children&rsquo;s homes, schools, county and national institutions, ministries, NGOs, faith-based actors, and private-sector partners to build stronger, more sustainable support systems.</p>
-    </div>
-  </div>
-</section>
-
-<!-- PRIORITIES -->
-<section class="priorities-section">
-  <div class="text-center">
-    <span class="section-label">What Guides Us</span>
-    <h2 class="section-title">Our Focus Areas</h2>
-    <p class="section-sub">Our work is shaped by the everyday realities girls and families face, and by the practical systems communities need in order to move forward.</p>
-  </div>
-  <div class="priorities-grid">
-    <div class="priority-card">
-      <div class="priority-icon">&#128218;</div>
-      <h3>Education Access</h3>
-      <p>Helping girls remain in school through learning materials, uniforms, fees support pathways, and a stronger environment for academic progress.</p>
-    </div>
-    <div class="priority-card">
-      <div class="priority-icon">&#127800;</div>
-      <h3>Menstrual Dignity</h3>
-      <p>Ensuring that menstruation never becomes a reason for missed school, shame, isolation, or reduced confidence.</p>
-    </div>
-    <div class="priority-card">
-      <div class="priority-icon">&#127973;</div>
-      <h3>Health &amp; Wellbeing</h3>
-      <p>Strengthening access to health information, hygiene support, reproductive wellbeing, and safer pathways to care.</p>
-    </div>
-    <div class="priority-card">
-      <div class="priority-icon">&#129309;</div>
-      <h3>Community Support</h3>
-      <p>Working with caregivers, children&rsquo;s homes, schools, and local institutions so responses are trusted, coordinated, and sustainable.</p>
-    </div>
-  </div>
-</section>
-
-<!-- PROGRAMS -->
-<section class="programs-section" id="programs">
-  <div class="programs-header">
-    <div>
-      <span class="section-label">What We Do</span>
-      <h2 class="section-title">Programs That Meet Real Needs</h2>
-    </div>
-    <a href="#donate" class="btn-outline">Fund A Program &rarr;</a>
-  </div>
-  <div class="programs-grid">
-    <div class="program-card featured">
-      <div class="card-media">
-        <img src="/Images/children3.jpg" alt="Children supported through the Msamaria Mwema Child Empowerment program">
-      </div>
-      <div class="card-body">
-        <span class="card-tag">Flagship &middot; Ongoing</span>
-        <h3>Msamaria Mwema Child Empowerment</h3>
-        <p>Our flagship child support program serving 60 school-going children with meals, educational materials, uniforms, books, sanitary supplies, and consistent care that helps them stay in school and thrive.</p>
-        <div class="card-amount">Annual Need: KShs 7,470,000 (~&#36;66,000)</div>
-      </div>
-    </div>
-    <div class="program-card">
-      <div class="card-icon-wrap">&#128247;</div>
-      <div class="card-body">
-        <span class="card-tag">Ongoing</span>
-        <h3>Covid-19 Support</h3>
-        <p>Providing masks, hygiene supplies, and sanitary support to children in homes and vulnerable communities to protect health, dignity, and continuity in learning.</p>
-        <div class="card-amount">KShs 5,000 / child / year</div>
-      </div>
-    </div>
-    <div class="program-card">
-      <div class="card-media">
-        <img src="/Images/school1.jpg" alt="Students receiving education support through Sister For Sister Kenya">
-      </div>
-      <div class="card-body">
-        <span class="card-tag">Ongoing</span>
-        <h3>Educational Support</h3>
-        <p>Supplying books, uniforms, stationery, and other learning materials to children in children&rsquo;s homes and vulnerable households so financial hardship does not keep them behind.</p>
-        <div class="card-amount">KShs 10,000 / child / year</div>
-      </div>
-    </div>
-    <div class="program-card">
-      <div class="card-icon-wrap">&#128187;</div>
-      <div class="card-body">
-        <span class="card-tag">New &middot; In Partnership</span>
-        <h3>Digital Literacy &amp; Library</h3>
-        <p>In partnership with Strive for Education, this initiative expands access to digital learning tools, computers, reading spaces, and books that prepare children for a changing world.</p>
-        <div class="card-amount">KShs 1,550,000 (~&#36;13,600)</div>
-      </div>
-    </div>
-    <div class="program-card">
-      <div class="card-icon-wrap">&#127973;</div>
-      <div class="card-body">
-        <span class="card-tag">Planned</span>
-        <h3>Healthcare &amp; Reproductive Health</h3>
-        <p>We are developing a reproductive and community health response for girls and young women in Nairobi, with a focus on closing urgent health access gaps in underserved communities.</p>
-        <div class="card-amount" style="color:var(--grey)">Planning Stage &mdash; Partners Welcome</div>
-      </div>
-    </div>
-    <div class="program-card">
-      <div class="card-media">
-        <img src="/Images/children2.jpg" alt="Girls benefiting from sanitary towel distribution support">
-      </div>
-      <div class="card-body">
-        <span class="card-tag">Ongoing</span>
-        <h3>Sanitary Towels Distribution</h3>
-        <p>Our founding cause remains central to our work: ensuring menstruation never becomes a reason for a girl to miss school, lose confidence, or be denied dignity.</p>
-        <div class="card-amount">Included in school support budget</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SUPPORT PATHS -->
-<section class="support-paths-section">
-  <div class="programs-header">
-    <div>
-      <span class="section-label">Take Action</span>
-      <h2 class="section-title">Choose How You Want To Contribute</h2>
-      <p class="section-sub">Different supporters contribute in different ways. What matters most is joining the work in a way that fits your capacity and commitment.</p>
-    </div>
-    <a href="#donate" class="btn-outline">Start Giving &rarr;</a>
-  </div>
-  <div class="support-paths-grid">
-    <div class="support-path-card">
-      <span class="support-tag">Direct Giving</span>
-      <h3>Make a Donation</h3>
-      <p>Give once or support regularly to help fund direct services, child support, and the operational work behind delivery.</p>
-      <a href="#donate">Donate Now &rarr;</a>
-    </div>
-    <div class="support-path-card feature">
-      <span class="support-tag">Targeted Support</span>
-      <h3>Sponsor a Girl&rsquo;s Journey</h3>
-      <p>Support school materials, menstrual dignity, meals, and consistent encouragement that help a girl stay in school and keep going.</p>
-      <a href="#contact">Ask About Sponsorship &rarr;</a>
-    </div>
-    <div class="support-path-card">
-      <span class="support-tag">Partnership</span>
-      <h3>Partner With Sister For Sister</h3>
-      <p>Collaborate through CSR, in-kind giving, joint campaigns, volunteer engagement, or long-term program support.</p>
-      <a href="#contact">Talk To Our Team &rarr;</a>
-    </div>
-  </div>
-</section>
-
-<!-- FUNDING NEEDS -->
-<section class="needs-section" id="needs">
-  <div class="needs-inner">
-    <span class="section-label">Transparency</span>
-    <h2 class="section-title">What Your Support Makes Possible</h2>
-    <p class="section-sub" style="margin-bottom:2.25rem">We believe trust grows through clarity. These figures show how contributions are translated into direct support, infrastructure, and the operations required to deliver impact well.</p>
-    <div class="needs-tabs">
-      <button class="tab-btn active" onclick="showTab('msamaria', this)">Msamaria Mwema</button>
-      <button class="tab-btn" onclick="showTab('digital', this)">Digital Literacy</button>
-      <button class="tab-btn" onclick="showTab('ops', this)">Operations</button>
-    </div>
-    <div id="tab-msamaria" class="tab-content active">
-      <table class="needs-table">
-        <thead><tr><th>#</th><th>Item</th><th>Per Child</th><th>Annual Total (60 kids)</th></tr></thead>
-        <tbody>
-          <tr><td>1</td><td>Meals (KShs 300/day &times; 365)</td><td><span class="kes">KShs 109,500</span></td><td><span class="kes">KShs 6,570,000</span><span class="usd">~&#36;58,000</span></td></tr>
-          <tr><td>2</td><td>School items support</td><td><span class="kes">KShs 10,000</span></td><td><span class="kes">KShs 600,000</span><span class="usd">~&#36;5,300</span></td></tr>
-          <tr><td>3</td><td>COVID masks &amp; sanitary towels</td><td><span class="kes">KShs 5,000</span></td><td><span class="kes">KShs 300,000</span><span class="usd">~&#36;2,600</span></td></tr>
-        </tbody>
-      </table>
-      <div class="table-foot">Total Annual Need: <strong>KShs 7,470,000 (~&#36;65,900)</strong></div>
-    </div>
-    <div id="tab-digital" class="tab-content">
-      <table class="needs-table">
-        <thead><tr><th>#</th><th>Item</th><th>Unit Cost</th><th>Total Cost</th></tr></thead>
-        <tbody>
-          <tr><td>1</td><td>10 Smartphones / Tablets</td><td><span class="kes">KShs 30,000</span></td><td><span class="kes">KShs 300,000</span><span class="usd">~&#36;2,600</span></td></tr>
-          <tr><td>2</td><td>5 Desktop computers &amp; accessories</td><td><span class="kes">KShs 50,000</span></td><td><span class="kes">KShs 250,000</span><span class="usd">~&#36;2,200</span></td></tr>
-          <tr><td>3</td><td>Library equipment &amp; fittings</td><td>&mdash;</td><td><span class="kes">KShs 500,000</span><span class="usd">~&#36;4,400</span></td></tr>
-          <tr><td>4</td><td>Books &amp; reading materials</td><td>&mdash;</td><td><span class="kes">KShs 500,000</span><span class="usd">~&#36;4,400</span></td></tr>
-        </tbody>
-      </table>
-      <div class="table-foot">Total One-Off Need: <strong>KShs 1,550,000 (~&#36;13,600)</strong></div>
-    </div>
-    <div id="tab-ops" class="tab-content">
-      <table class="needs-table">
-        <thead><tr><th>#</th><th>Item</th><th>Per Month</th><th>Annual Cost</th></tr></thead>
-        <tbody>
-          <tr><td>1</td><td>Office space rental</td><td><span class="kes">KShs 30,000</span></td><td><span class="kes">KShs 360,000</span><span class="usd">~&#36;3,185</span></td></tr>
-          <tr><td>2</td><td>Volunteer stipends</td><td><span class="kes">KShs 45,000</span></td><td><span class="kes">KShs 540,000</span><span class="usd">~&#36;4,700</span></td></tr>
-          <tr><td>3</td><td>Transport, airtime, internet &amp; stationery</td><td><span class="kes">KShs 50,000</span></td><td><span class="kes">KShs 600,000</span><span class="usd">~&#36;5,300</span></td></tr>
-        </tbody>
-      </table>
-      <div class="table-foot">Total Annual Operations: <strong>KShs 1,500,000 (~&#36;13,185)</strong></div>
-    </div>
-  </div>
-</section>
-
-<!-- IMPACT -->
-<section class="impact-section" id="impact">
-  <div class="text-center">
-    <span class="section-label">Our Impact</span>
-    <h2 class="section-title">Impact Built Through Consistency</h2>
-    <p class="section-sub">For more than a decade, our work has combined compassion, community trust, and steady action to keep showing up where girls and families need us most.</p>
-  </div>
-  <div class="impact-grid">
-    <div class="impact-card"><div class="em">&#128103;</div><div class="num">60+</div><div class="lbl">Children Supported at Msamaria Mwema</div></div>
-    <div class="impact-card"><div class="em">&#127968;</div><div class="num">5+</div><div class="lbl">Children&rsquo;s Homes Served Across Kenya</div></div>
-    <div class="impact-card"><div class="em">&#127800;</div><div class="num">1000s</div><div class="lbl">Sanitary Towels Distributed to Girls</div></div>
-    <div class="impact-card"><div class="em">&#128197;</div><div class="num">10+</div><div class="lbl">Years of Grassroots Community Work</div></div>
-  </div>
-</section>
-
-<!-- STORY HIGHLIGHT -->
-<section class="story-highlight-section">
-  <div class="story-highlight-card">
-    <div class="story-highlight-copy">
-      <span class="section-label">Why It Matters</span>
-      <h2 class="section-title">When a girl is supported, her future opens up</h2>
-      <p class="section-sub">Our work is about more than giving items. It is about restoring confidence, protecting dignity, and making sure girls can keep learning without barriers that should never define their potential.</p>
-      <blockquote class="story-quote">&ldquo;Support at the right time can change whether a girl falls behind or keeps moving forward with confidence.&rdquo;</blockquote>
-      <p class="story-attrib">A reflection that guides our work with girls, caregivers, and community partners.</p>
-    </div>
-    <figure class="story-highlight-media">
-      <img src="/Images/About.jpg" alt="Sister For Sister Kenya community support in action">
-    </figure>
-    <div class="story-highlight-points">
-      <div class="highlight-point">
-        <h3>Practical Support</h3>
-        <p>Uniforms, books, sanitary towels, food support, and digital learning tools all remove barriers that affect daily life and long-term opportunity.</p>
-      </div>
-      <div class="highlight-point">
-        <h3>Trusted Relationships</h3>
-        <p>We work through homes, schools, caregivers, and partners because lasting change grows through trusted local relationships.</p>
-      </div>
-      <div class="highlight-point">
-        <h3>Longer-Term Possibility</h3>
-        <p>Every intervention aims to move from immediate relief toward stronger wellbeing, education continuity, and life choices.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- NEWS / ARTICLES -->
-<section class="articles-section" id="news">
-  <div class="programs-header">
-    <div>
-      <span class="section-label">News &amp; Articles</span>
-      <h2 class="section-title">Stories From the Communities We Serve</h2>
-      <p class="section-sub">Our work is not only measured in numbers. It is also seen in the stories, partnerships, advocacy moments, and community milestones that continue shaping the journey ahead.</p>
-    </div>
-    <a href="#contact" class="btn-outline">Partner With Us &rarr;</a>
-  </div>
-  <div class="articles-grid">
-    <article class="article-card article-featured">
-      <div class="article-media">
-        <img src="/Images/childrens1.jpg" alt="Children and caregivers during a Sister For Sister Kenya outreach moment">
-      </div>
-      <span class="article-tag">Background</span>
-      <h3>From immediate relief to long-term empowerment</h3>
-      <p>What began as an effort to provide sanitary towels has grown into a wider commitment to educational support, child wellbeing, advocacy, and community-led opportunity for girls and young women.</p>
-      <div class="article-meta">Our Story &middot; Since 2014</div>
-    </article>
-    <article class="article-card">
-      <div class="article-media">
-        <img src="/Images/children3.jpg" alt="Children in a care and support space served by Sister For Sister Kenya">
-      </div>
-      <span class="article-tag">Achievement</span>
-      <h3>Mobilizing support for children&rsquo;s homes and care spaces</h3>
-      <p>Through charity events, donations, and community mobilization, we have continued supporting care institutions including St Monica Roysambu, Msamaria Mwema Children&rsquo;s Home Kabete, KNH, and St Teresa Narok.</p>
-      <div class="article-meta">Field Update &middot; Outreach</div>
-    </article>
-    <article class="article-card">
-      <div class="article-media">
-        <img src="/Images/children2.jpg" alt="Girls and young women represented in advocacy and dignity campaigns">
-      </div>
-      <span class="article-tag">Advocacy</span>
-      <h3>Using public platforms to champion girls&rsquo; rights and dignity</h3>
-      <p>We participate in advocacy spaces such as the International Day of the Girl Child, the Day of the African Child, community campaigns, and public events that amplify the needs and potential of girls.</p>
-      <div class="article-meta">Advocacy &middot; Public Engagement</div>
-    </article>
-    <article class="article-card">
-      <span class="article-tag">Partnerships</span>
-      <h3>Building change through trusted partnerships</h3>
-      <p>Our work is strengthened by collaboration across government, NGOs, faith-based networks, creatives, and private-sector partners including Start a Library Foundation, Fahari, Inua Dada, and other supporters.</p>
-      <div class="article-meta">Partnerships &middot; Cross-Sector Work</div>
-    </article>
-    <article class="article-card">
-      <span class="article-tag">Upcoming</span>
-      <h3>Preparing for a stronger reproductive health response</h3>
-      <p>Our ongoing feasibility work in Nairobi is helping shape a more holistic model of care for girls and young women, with reproductive health and community access at its center.</p>
-      <div class="article-meta">Upcoming Initiative &middot; Nairobi</div>
-    </article>
-  </div>
-</section>
-
-<!-- TRUST / DOCUMENTS -->
-<section class="trust-section">
-  <div class="programs-header">
-    <div>
-      <span class="section-label">Accountability</span>
-      <h2 class="section-title">Trust, Transparency, and Learning</h2>
-      <p class="section-sub">We want supporters, partners, and community members to understand not only what we do, but how we work, what we are learning, and where resources are needed most.</p>
-    </div>
-    <a href="#contact" class="btn-outline">Request Documents &rarr;</a>
-  </div>
-  <div class="trust-grid">
-    <div class="trust-card">
-      <h3>Registration &amp; Governance</h3>
-      <p>We are registered in Kenya and work through community partnership, responsible stewardship, and mission-driven leadership.</p>
-    </div>
-    <div class="trust-card">
-      <h3>Funding Clarity</h3>
-      <p>We share program needs, operational needs, and practical funding priorities so donors can give with confidence and context.</p>
-    </div>
-    <div class="trust-card">
-      <h3>Reports &amp; Updates</h3>
-      <p>As we continue growing, this section can host annual reports, partnership briefs, organizational updates, and impact summaries.</p>
-    </div>
-  </div>
-</section>
-
-<!-- MERCHANDISE -->
-<section class="merch-section" id="merchandise">
-  <div class="programs-header">
-    <div>
-      <span class="section-label">Support Through Purchase</span>
-      <h2 class="section-title">Purpose-Driven Merchandise</h2>
-      <p class="section-sub">Our merchandise gives friends of the organization another practical way to stand with the mission. Every purchase helps strengthen the operational backbone that keeps our programs active and responsive.</p>
-    </div>
-    <a href="#contact" class="btn-outline">Order Merchandise &rarr;</a>
-  </div>
-  <div class="merch-intro">
-    <p>Wear the mission. Share the message. Fund the work. Our merchandise line is designed for volunteers, partners, and community champions who want to raise visibility while helping sustain outreach, coordination, transport, and communication costs.</p>
-  </div>
-  <div class="merch-grid">
-    <article class="merch-card featured">
-      <span class="merch-badge">Best Seller</span>
-      <div class="merch-gallery merch-gallery-three">
-        <figure class="merch-photo">
-          <img src="/Images/pinkTee.jpeg" alt="Pink Sister for Sister Kenya T-shirt">
-          <figcaption>Pink</figcaption>
-        </figure>
-        <figure class="merch-photo">
-          <img src="/Images/blackTee.jpeg" alt="Black Sister for Sister Kenya T-shirt">
-          <figcaption>Black</figcaption>
-        </figure>
-        <figure class="merch-photo">
-          <img src="/Images/whiteTee.jpeg" alt="White Sister for Sister Kenya T-shirt">
-          <figcaption>White</figcaption>
-        </figure>
-      </div>
-      <h3>Branded T-Shirts</h3>
-      <p>Smart, comfortable everyday wear for campaigns, school drives, volunteer events, and supporters who want to carry the message into their communities.</p>
-      <div class="merch-meta">Price: <strong> KShs 1,500 </strong></div>
-      <div class="merch-purpose">Supports outreach, campaign visibility, and community engagement activities.</div>
-      <div class="merch-order">
-        <label class="merch-order-label" for="teeColor">Choose Color</label>
-        <select class="merch-select merch-color-select" id="teeColor" data-product="Branded T-Shirts" data-price="KShs 1,500">
-          <option value="">Select a color</option>
-          <option value="Black">Black</option>
-          <option value="White">White</option>
-          <option value="Pink">Pink</option>
-          <option value="Other">Other</option>
-        </select>
-        <input class="merch-other-color" id="teeOtherColor" type="text" placeholder="Enter preferred color" aria-label="Other T-shirt color" disabled>
-        <label class="merch-order-label" for="teeSize">Choose Size</label>
-        <select class="merch-select merch-size-select" id="teeSize">
-          <option value="">Select a size</option>
-          <option value="XS">XS</option>
-          <option value="S">S</option>
-          <option value="M">M</option>
-          <option value="L">L</option>
-          <option value="XL">XL</option>
-          <option value="XXL">XXL</option>
-          <option value="Other">Other</option>
-        </select>
-        <input class="merch-other-size" id="teeOtherSize" type="text" placeholder="Enter preferred size" aria-label="Other T-shirt size" disabled>
-        <label class="merch-order-label" for="teeQuantity">Quantity</label>
-        <input class="merch-quantity" id="teeQuantity" type="number" min="1" step="1" value="1" placeholder="Enter quantity" aria-label="T-shirt quantity">
-        <div class="merch-order-actions">
-          <button type="button" class="merch-order-btn merch-order-whatsapp" data-channel="whatsapp" data-product="Branded T-Shirts" data-price="KShs 1,500" data-select="teeColor" data-other="teeOtherColor" data-size-select="teeSize" data-size-other="teeOtherSize">Order via WhatsApp</button>
-          <button type="button" class="merch-order-btn merch-order-email" data-channel="email" data-product="Branded T-Shirts" data-price="KShs 1,500" data-select="teeColor" data-other="teeOtherColor" data-size-select="teeSize" data-size-other="teeOtherSize">Order via Email</button>
-        </div>
-        <p class="merch-order-note">Choose your preferred color, size, and quantity, then order through WhatsApp or email.</p>
-      </div>
-    </article>
-    <article class="merch-card premium">
-      <span class="merch-badge">Premium Support</span>
-      <div class="merch-gallery merch-gallery-two">
-        <figure class="merch-photo">
-          <img src="/Images/pinkHoodie.jpeg" alt="Pink Sister for Sister Kenya hoodie">
-          <figcaption>Pink</figcaption>
-        </figure>
-        <figure class="merch-photo">
-          <img src="/Images/blackHoodie.jpeg" alt="Black Sister for Sister Kenya hoodie">
-          <figcaption>Black</figcaption>
-        </figure>
-      </div>
-      <h3>Signature Hoodies</h3>
-      <p>A premium support item for donors, partners, volunteers, and team members looking for quality branded apparel with strong visibility and everyday value.</p>
-      <div class="merch-meta"> Price: <strong>KShs 3,500</strong></div>
-      <div class="merch-purpose">Helps fund operational essentials including transport, internet, and coordination.</div>
-      <div class="merch-order">
-        <label class="merch-order-label" for="hoodieColor">Choose Color</label>
-        <select class="merch-select merch-color-select" id="hoodieColor" data-product="Signature Hoodies" data-price="KShs 3,500">
-          <option value="">Select a color</option>
-          <option value="Black">Black</option>
-          <option value="White">White</option>
-          <option value="Pink">Pink</option>
-          <option value="Other">Other</option>
-        </select>
-        <input class="merch-other-color" id="hoodieOtherColor" type="text" placeholder="Enter preferred color" aria-label="Other hoodie color" disabled>
-        <label class="merch-order-label" for="hoodieSize">Choose Size</label>
-        <select class="merch-select merch-size-select" id="hoodieSize">
-          <option value="">Select a size</option>
-          <option value="XS">XS</option>
-          <option value="S">S</option>
-          <option value="M">M</option>
-          <option value="L">L</option>
-          <option value="XL">XL</option>
-          <option value="XXL">XXL</option>
-          <option value="Other">Other</option>
-        </select>
-        <input class="merch-other-size" id="hoodieOtherSize" type="text" placeholder="Enter preferred size" aria-label="Other hoodie size" disabled>
-        <label class="merch-order-label" for="hoodieQuantity">Quantity</label>
-        <input class="merch-quantity" id="hoodieQuantity" type="number" min="1" step="1" value="1" placeholder="Enter quantity" aria-label="Hoodie quantity">
-        <div class="merch-order-actions">
-          <button type="button" class="merch-order-btn merch-order-whatsapp" data-channel="whatsapp" data-product="Signature Hoodies" data-price="KShs 3,500" data-select="hoodieColor" data-other="hoodieOtherColor" data-size-select="hoodieSize" data-size-other="hoodieOtherSize">Order via WhatsApp</button>
-          <button type="button" class="merch-order-btn merch-order-email" data-channel="email" data-product="Signature Hoodies" data-price="KShs 3,500" data-select="hoodieColor" data-other="hoodieOtherColor" data-size-select="hoodieSize" data-size-other="hoodieOtherSize">Order via Email</button>
-        </div>
-        <p class="merch-order-note">Choose your preferred color, size, and quantity, then order through WhatsApp or email.</p>
-      </div>
-    </article>
-    <article class="merch-card">
-      <span class="merch-badge">Everyday Wear</span>
-      <div class="merch-gallery merch-gallery-three">
-        <figure class="merch-photo">
-          <img src="/Images/pinkPolo.jpeg" alt="Pink Sister for Sister Kenya polo shirt">
-          <figcaption>Pink</figcaption>
-        </figure>
-        <figure class="merch-photo">
-          <img src="/Images/blackPolo.jpeg" alt="Black Sister for Sister Kenya polo shirt">
-          <figcaption>Black</figcaption>
-        </figure>
-        <figure class="merch-photo">
-          <img src="/Images/whitePolo.jpeg" alt="White Sister for Sister Kenya polo shirt">
-          <figcaption>White</figcaption>
-        </figure>
-      </div>
-      <h3>Branded Polo Shirts</h3>
-      <p>Clean, versatile polos for team visibility, partner events, school visits, and supporters who want a polished branded look for everyday wear.</p>
-      <div class="merch-meta">Price: <strong>KShs 2,000</strong></div>
-      <div class="merch-purpose">Supports volunteer visibility, field presence, and engagement on the ground.</div>
-      <div class="merch-order">
-        <label class="merch-order-label" for="poloColor">Choose Color</label>
-        <select class="merch-select merch-color-select" id="poloColor" data-product="Branded Polo Shirts" data-price="KShs 2,000">
-          <option value="">Select a color</option>
-          <option value="Black">Black</option>
-          <option value="White">White</option>
-          <option value="Pink">Pink</option>
-          <option value="Other">Other</option>
-        </select>
-        <input class="merch-other-color" id="poloOtherColor" type="text" placeholder="Enter preferred color" aria-label="Other polo color" disabled>
-        <label class="merch-order-label" for="poloSize">Choose Size</label>
-        <select class="merch-select merch-size-select" id="poloSize">
-          <option value="">Select a size</option>
-          <option value="XS">XS</option>
-          <option value="S">S</option>
-          <option value="M">M</option>
-          <option value="L">L</option>
-          <option value="XL">XL</option>
-          <option value="XXL">XXL</option>
-          <option value="Other">Other</option>
-        </select>
-        <input class="merch-other-size" id="poloOtherSize" type="text" placeholder="Enter preferred size" aria-label="Other polo size" disabled>
-        <label class="merch-order-label" for="poloQuantity">Quantity</label>
-        <input class="merch-quantity" id="poloQuantity" type="number" min="1" step="1" value="1" placeholder="Enter quantity" aria-label="Polo quantity">
-        <div class="merch-order-actions">
-          <button type="button" class="merch-order-btn merch-order-whatsapp" data-channel="whatsapp" data-product="Branded Polo Shirts" data-price="KShs 2,000" data-select="poloColor" data-other="poloOtherColor" data-size-select="poloSize" data-size-other="poloOtherSize">Order via WhatsApp</button>
-          <button type="button" class="merch-order-btn merch-order-email" data-channel="email" data-product="Branded Polo Shirts" data-price="KShs 2,000" data-select="poloColor" data-other="poloOtherColor" data-size-select="poloSize" data-size-other="poloOtherSize">Order via Email</button>
-        </div>
-        <p class="merch-order-note">Choose your preferred color, size, and quantity, then order through WhatsApp or email.</p>
-      </div>
-    </article>
-  </div>
-  <div class="merch-note">
-    <p>Merchandise orders can begin through direct inquiry while payment approvals are pending, with full M-Pesa and card checkout to follow once payment configuration is activated.</p>
-  </div>
-</section>
-
-<!-- DONATE — M-PESA STK PUSH + FLUTTERWAVE -->
-<div class="donate-section" id="donate">
-
-  <!-- LEFT: Ways to Help -->
-  <div class="donate-left">
-    <span class="section-label">Get Involved</span>
-    <h2 class="section-title">Ways to Stand With Us</h2>
-    <p class="section-sub">Whether you are giving as an individual, family, company, or institution, your contribution helps us respond with consistency, dignity, and care.</p>
-    <div class="help-ways">
-      <div class="help-way"><div class="ico">&#128179;</div><div><h4>Card / International Giving</h4><p>Support securely through card payment, especially for diaspora and international friends of the organization.</p></div></div>
-      <div class="help-way"><div class="ico">&#128242;</div><div><h4>M-Pesa Giving</h4><p>Make a direct contribution through our Safaricom M-Pesa Till no. 855893 or with a payment prompt sent straight to your phone.</p></div></div>
-      <div class="help-way"><div class="ico">&#129309;</div><div><h4>Corporate &amp; Institutional Partnerships</h4><p>Partner with us through CSR, program sponsorship, in-kind support, or strategic collaboration that expands impact.</p></div></div>
-      <div class="help-way"><div class="ico">&#128226;</div><div><h4>Volunteer, Advocate, or Refer</h4><p>Offer your time, amplify our message, connect us to partners, or help bring support closer to communities that need it.</p></div></div>
-    </div>
-  </div>
-
-  <!-- RIGHT: Payment Form -->
-  <div class="donate-right">
-
-    <div class="donate-intro">
-      <h2 class="section-title">Give With Confidence</h2>
-      <p>Your support helps fund direct programs and the systems that make delivery possible. Choose a one-time gift for immediate impact or join our monthly giver community for steady, long-term support.</p>
-    </div>
-
-    <div class="giving-mode-wrap">
-      <div class="giving-mode-bar" role="tablist" aria-label="Donation frequency">
-        <button type="button" class="giving-mode-btn active" data-mode="once">Give Once</button>
-        <button type="button" class="giving-mode-btn" data-mode="monthly">Give Monthly</button>
-      </div>
-      <p class="giving-mode-note" id="givingModeNote">Make a one-time gift today to meet immediate needs in the communities we serve.</p>
-    </div>
-
-    <!-- Payment method tabs -->
-    <div class="pay-tabs-bar">
-      <button class="pay-tab active" data-tab="mpesa">
-        <span class="pay-tab-icon">&#128242;</span> M-Pesa
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#programs">Programs</a></li>
+        <li><a href="#needs">Our Needs</a></li>
+        <li><a href="#impact">Impact</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#donate" class="nav-cta">Donate</a></li>
+      </ul>
+      <button
+        class="hamburger"
+        id="hamburger"
+        aria-label="Menu"
+        aria-expanded="false"
+      >
+        <span></span><span></span><span></span>
       </button>
-      <button class="pay-tab" data-tab="card">
-        <span class="pay-tab-icon">&#128179;</span> Card / USD
-      </button>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#about">About</a>
+      <a href="#programs">Programs</a>
+      <a href="#needs">Our Needs</a>
+      <a href="#impact">Impact</a>
+      <a href="shop.html">Shop</a>
+      <a href="#news">News</a>
+      <a href="#contact">Contact</a>
+      <a href="#donate" class="btn-pink-mob">Donate Now</a>
     </div>
 
-    <div class="pay-panels">
+    <!-- HERO -->
+    <section class="hero" id="about">
+      <div class="hero-left">
+        <div class="hero-eyebrow">
+          &#127472;&#127466; Registered NGO &middot; Since 2014
+        </div>
+        <h1>
+          Dignity, education, and<br /><span class="accent">opportunity</span
+          ><br />for every girl
+        </h1>
+        <p class="hero-desc">
+          Sister For Sister Kenya is a registered non-profit organization
+          advancing the wellbeing of girls and young women through education
+          support, menstrual dignity, community partnerships, and practical
+          pathways to long-term opportunity across Kenya.
+        </p>
+        <div class="hero-actions">
+          <a href="#donate" class="btn-pink">Support Our Work</a>
+          <a href="#programs" class="btn-outline">Explore Programs</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-img-wrap">
+          <img
+            src="Images/About.jpg"
+            alt="Girls supported by Sister For Sister Kenya"
+          />
+          <div class="hero-stat">
+            <div class="num">2014</div>
+            <div class="lbl">Founded</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <!-- M-PESA PANEL -->
-      <div class="pay-panel active" id="panel-mpesa">
-        <form id="mpesaForm">
-          <div class="amount-section">
-            <div class="amount-grid">
-              <button type="button" class="amount-btn selected" data-panel="mpesa" data-amount="2500">KES 2,500</button>
-              <button type="button" class="amount-btn" data-panel="mpesa" data-amount="5000">KES 5,000</button>
-              <button type="button" class="amount-btn" data-panel="mpesa" data-amount="10000">KES 10,000</button>
-              <button type="button" class="amount-btn" data-panel="mpesa" data-amount="20000">KES 20,000</button>
-              <button type="button" class="amount-btn" data-panel="mpesa" data-amount="25000">KES 25,000</button>
-              <button type="button" class="amount-btn" data-panel="mpesa" data-amount="50000">KES 50,000</button>
-            </div>
-          </div>
-          <div class="field-group">
-            <label>Custom Amount (KES)</label>
-            <input type="number" class="custom-amount" data-panel="mpesa" placeholder="Or enter your own amount" min="100"/>
-          </div>
-          <div class="form-row">
-            <div class="field-group">
-              <label>Full Name</label>
-              <input type="text" id="mpesaName" placeholder="Jane Wanjiku" required/>
-            </div>
-            <div class="field-group">
-              <label>Email</label>
-              <input type="email" id="mpesaEmail" placeholder="jane@example.com" required/>
-            </div>
-          </div>
-          <div class="field-group">
-            <label>Safaricom Number</label>
-            <input type="tel" id="mpesaPhone" placeholder="0712 345 678" required/>
-            <small class="field-hint">You&rsquo;ll receive a payment prompt on this number</small>
-          </div>
-          <p class="pay-error" id="mpesaError"></p>
-          <button type="submit" class="donate-cta" id="mpesaBtn">&#128242; Send M-Pesa Prompt</button>
-        </form>
+    <div class="divider"></div>
 
-        <!-- M-Pesa pending state -->
-        <div id="mpesaPending" style="display:none;text-align:center;padding:2rem 0">
-          <div style="font-size:3rem;margin-bottom:1rem">&#128242;</div>
-          <h3 style="color:var(--white);font-family:'Playfair Display',serif;margin-bottom:0.5rem">Check Your Phone</h3>
-          <p style="color:rgba(255,255,255,0.6);font-size:0.9rem">A payment prompt has been sent to</p>
-          <p style="color:var(--pink-light);font-weight:700;font-size:1.1rem;margin:0.5rem 0" class="pending-phone"></p>
-          <p style="color:rgba(255,255,255,0.5);font-size:0.82rem">Enter your M-Pesa PIN to complete the donation.<br/>This page will update automatically.</p>
-          <div class="mpesa-pulse">&#8226; &#8226; &#8226;</div>
+    <!-- MISSION -->
+    <div class="mission-band">
+      <div class="mission-item">
+        <div class="icon">&#127757;</div>
+        <h3>Our Mission</h3>
+        <p>
+          To advance access to quality education, menstrual dignity, protection,
+          and life-changing opportunity for girls and women in underserved
+          communities across Kenya.
+        </p>
+      </div>
+      <div class="mission-item">
+        <div class="icon">&#129309;</div>
+        <h3>Our Approach</h3>
+        <p>
+          We work hand in hand with families, schools, community organizations,
+          public institutions, and partners to deliver support that is
+          practical, trusted, and rooted in local realities.
+        </p>
+      </div>
+      <div class="mission-item">
+        <div class="icon">&#10024;</div>
+        <h3>Our Vision</h3>
+        <p>
+          A Kenya where every girl can learn, thrive, lead, and pursue her
+          future with dignity, confidence, and the support she deserves.
+        </p>
+      </div>
+    </div>
+
+    <!-- STORY / BACKGROUND -->
+    <section class="story-section">
+      <div class="story-grid">
+        <div class="story-copy">
+          <span class="section-label">Our Story</span>
+          <h2 class="section-title">
+            A grassroots movement growing into lasting change
+          </h2>
+          <p class="section-sub">
+            Sister For Sister Kenya was registered in October 2014 and began
+            with a simple but urgent response: helping girls stay in school with
+            access to sanitary towels and educational support. Over time, that
+            response has grown into a broader community-centered organization
+            supporting children, caregivers, adolescents, and young women
+            through education, dignity, advocacy, practical assistance, and
+            partnership-led development.
+          </p>
+        </div>
+        <figure class="story-photo-card">
+          <img
+            src="Images/children2.jpg"
+            alt="Children taking part in Sister For Sister Kenya support activities"
+            loading="lazy"
+          />
+        </figure>
+        <div class="story-card">
+          <h3>Why we exist</h3>
+          <p>
+            Too many girls still face barriers that should never define their
+            future: poverty, interrupted schooling, lack of sanitary support,
+            and limited access to safe opportunities. We exist to help remove
+            those barriers.
+          </p>
+        </div>
+        <div class="story-card">
+          <h3>How we work</h3>
+          <p>
+            We listen first, partner locally, and respond practically. Our work
+            combines direct support with community mobilization, referrals,
+            advocacy, and relationship-building so impact can continue beyond a
+            single intervention.
+          </p>
+        </div>
+        <div class="story-card">
+          <h3>Who we work with</h3>
+          <p>
+            We collaborate with communities, children&rsquo;s homes, schools,
+            county and national institutions, ministries, NGOs, faith-based
+            actors, and private-sector partners to build stronger, more
+            sustainable support systems.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRIORITIES -->
+    <section class="priorities-section">
+      <div class="text-center">
+        <span class="section-label">What Guides Us</span>
+        <h2 class="section-title">Our Focus Areas</h2>
+        <p class="section-sub">
+          Our work is shaped by the everyday realities girls and families face,
+          and by the practical systems communities need in order to move
+          forward.
+        </p>
+      </div>
+      <div class="priorities-grid">
+        <div class="priority-card">
+          <div class="priority-icon">&#128218;</div>
+          <h3>Education Access</h3>
+          <p>
+            Helping girls remain in school through learning materials, uniforms,
+            fees support pathways, and a stronger environment for academic
+            progress.
+          </p>
+        </div>
+        <div class="priority-card">
+          <div class="priority-icon">&#127800;</div>
+          <h3>Menstrual Dignity</h3>
+          <p>
+            Ensuring that menstruation never becomes a reason for missed school,
+            shame, isolation, or reduced confidence.
+          </p>
+        </div>
+        <div class="priority-card">
+          <div class="priority-icon">&#127973;</div>
+          <h3>Health &amp; Wellbeing</h3>
+          <p>
+            Strengthening access to health information, hygiene support,
+            reproductive wellbeing, and safer pathways to care.
+          </p>
+        </div>
+        <div class="priority-card">
+          <div class="priority-icon">&#129309;</div>
+          <h3>Community Support</h3>
+          <p>
+            Working with caregivers, children&rsquo;s homes, schools, and local
+            institutions so responses are trusted, coordinated, and sustainable.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGRAMS -->
+    <section class="programs-section" id="programs">
+      <div class="programs-header">
+        <div>
+          <span class="section-label">What We Do</span>
+          <h2 class="section-title">Programs That Meet Real Needs</h2>
+        </div>
+        <a href="#donate" class="btn-outline">Fund A Program &rarr;</a>
+      </div>
+      <div class="programs-grid">
+        <div class="program-card featured">
+          <div class="card-media">
+            <img
+              src="Images/children3.jpg"
+              alt="Children supported through the Msamaria Mwema Child Empowerment program"
+              loading="lazy"
+            />
+          </div>
+          <div class="card-body">
+            <span class="card-tag">Flagship &middot; Ongoing</span>
+            <h3>Msamaria Mwema Child Empowerment</h3>
+            <p>
+              Our flagship child support program serving 60 school-going
+              children with meals, educational materials, uniforms, books,
+              sanitary supplies, and consistent care that helps them stay in
+              school and thrive.
+            </p>
+            <div class="card-amount">
+              Annual Need: KShs 7,470,000 (~&#36;66,000)
+            </div>
+          </div>
+        </div>
+        <div class="program-card">
+          <div class="card-icon-wrap">&#128247;</div>
+          <div class="card-body">
+            <span class="card-tag">Ongoing</span>
+            <h3>Face Mask's Support</h3>
+            <p>
+              Providing face masks, hygiene supplies, and sanitary support to
+              children in homes and vulnerable communities to protect health,
+              dignity, and continuity in learning.
+            </p>
+            <div class="card-amount">KShs 5,000 / child / year</div>
+          </div>
+        </div>
+        <div class="program-card">
+          <div class="card-media">
+            <img
+              src="Images/school1.jpg"
+              alt="Students receiving education support through Sister For Sister Kenya"
+              loading="lazy"
+            />
+          </div>
+          <div class="card-body">
+            <span class="card-tag">Ongoing</span>
+            <h3>Educational Support</h3>
+            <p>
+              Supplying books, uniforms, stationery, and other learning
+              materials to children in children&rsquo;s homes and vulnerable
+              households so financial hardship does not keep them behind.
+            </p>
+            <div class="card-amount">KShs 10,000 / child / year</div>
+          </div>
+        </div>
+        <div class="program-card">
+          <div class="card-icon-wrap">&#128187;</div>
+          <div class="card-body">
+            <span class="card-tag">New &middot; In Partnership</span>
+            <h3>Digital Literacy &amp; Library</h3>
+            <p>
+              In partnership with Strive for Education, this initiative expands
+              access to digital learning tools, computers, reading spaces, and
+              books that prepare children for a changing world.
+            </p>
+            <div class="card-amount">KShs 1,550,000 (~&#36;13,600)</div>
+          </div>
+        </div>
+        <div class="program-card">
+          <div class="card-icon-wrap">&#127973;</div>
+          <div class="card-body">
+            <span class="card-tag">Planned</span>
+            <h3>Healthcare &amp; Reproductive Health</h3>
+            <p>
+              We are developing a reproductive and community health response for
+              girls and young women in Nairobi, with a focus on closing urgent
+              health access gaps in underserved communities.
+            </p>
+            <div class="card-amount" style="color: var(--grey)">
+              Planning Stage &mdash; Partners Welcome
+            </div>
+          </div>
+        </div>
+        <div class="program-card">
+          <div class="card-media">
+            <img
+              src="Images/children2.jpg"
+              alt="Girls benefiting from sanitary towel distribution support"
+              loading="lazy"
+            />
+          </div>
+          <div class="card-body">
+            <span class="card-tag">Ongoing</span>
+            <h3>Sanitary Towels Distribution</h3>
+            <p>
+              Our founding cause remains central to our work: ensuring
+              menstruation never becomes a reason for a girl to miss school,
+              lose confidence, or be denied dignity.
+            </p>
+            <div class="card-amount">Included in school support budget</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUPPORT PATHS -->
+    <section class="support-paths-section">
+      <div class="programs-header">
+        <div>
+          <span class="section-label">Take Action</span>
+          <h2 class="section-title">Choose How You Want To Contribute</h2>
+          <p class="section-sub">
+            Different supporters contribute in different ways. What matters most
+            is joining the work in a way that fits your capacity and commitment.
+          </p>
+        </div>
+        <a href="#donate" class="btn-outline">Start Giving &rarr;</a>
+      </div>
+      <div class="support-paths-grid">
+        <div class="support-path-card">
+          <span class="support-tag">Direct Giving</span>
+          <h3>Make a Donation</h3>
+          <p>
+            Give once or support regularly to help fund direct services, child
+            support, and the operational work behind delivery.
+          </p>
+          <a href="#donate">Donate Now &rarr;</a>
+        </div>
+        <div class="support-path-card feature">
+          <span class="support-tag">Targeted Support</span>
+          <h3>Sponsor a Girl&rsquo;s Journey</h3>
+          <p>
+            Support school materials, menstrual dignity, meals, and consistent
+            encouragement that help a girl stay in school and keep going.
+          </p>
+          <a href="#contact">Ask About Sponsorship &rarr;</a>
+        </div>
+        <div class="support-path-card">
+          <span class="support-tag">Partnership</span>
+          <h3>Partner With Sister For Sister</h3>
+          <p>
+            Collaborate through CSR, in-kind giving, joint campaigns, volunteer
+            engagement, or long-term program support.
+          </p>
+          <a href="#contact">Talk To Our Team &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FUNDING NEEDS -->
+    <section class="needs-section" id="needs">
+      <div class="needs-inner">
+        <span class="section-label">Transparency</span>
+        <h2 class="section-title">What Your Support Makes Possible</h2>
+        <p class="section-sub" style="margin-bottom: 2.25rem">
+          We believe trust grows through clarity. These figures show how
+          contributions are translated into direct support, infrastructure, and
+          the operations required to deliver impact well.
+        </p>
+        <div class="needs-tabs">
+          <button class="tab-btn active" onclick="showTab('msamaria', this)">
+            Msamaria Mwema
+          </button>
+          <button class="tab-btn" onclick="showTab('digital', this)">
+            Digital Literacy
+          </button>
+          <button class="tab-btn" onclick="showTab('ops', this)">
+            Operations
+          </button>
+        </div>
+        <div id="tab-msamaria" class="tab-content active">
+          <table class="needs-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Item</th>
+                <th>Per Child</th>
+                <th>Annual Total (60 kids)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Meals (KShs 300/day &times; 365)</td>
+                <td><span class="kes">KShs 109,500</span></td>
+                <td>
+                  <span class="kes">KShs 6,570,000</span
+                  ><span class="usd">~&#36;58,000</span>
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>School items support</td>
+                <td><span class="kes">KShs 10,000</span></td>
+                <td>
+                  <span class="kes">KShs 600,000</span
+                  ><span class="usd">~&#36;5,300</span>
+                </td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>COVID masks &amp; sanitary towels</td>
+                <td><span class="kes">KShs 5,000</span></td>
+                <td>
+                  <span class="kes">KShs 300,000</span
+                  ><span class="usd">~&#36;2,600</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="table-foot">
+            Total Annual Need: <strong>KShs 7,470,000 (~&#36;65,900)</strong>
+          </div>
+        </div>
+        <div id="tab-digital" class="tab-content">
+          <table class="needs-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Item</th>
+                <th>Unit Cost</th>
+                <th>Total Cost</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>10 Smartphones / Tablets</td>
+                <td><span class="kes">KShs 30,000</span></td>
+                <td>
+                  <span class="kes">KShs 300,000</span
+                  ><span class="usd">~&#36;2,600</span>
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>5 Desktop computers &amp; accessories</td>
+                <td><span class="kes">KShs 50,000</span></td>
+                <td>
+                  <span class="kes">KShs 250,000</span
+                  ><span class="usd">~&#36;2,200</span>
+                </td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Library equipment &amp; fittings</td>
+                <td>&mdash;</td>
+                <td>
+                  <span class="kes">KShs 500,000</span
+                  ><span class="usd">~&#36;4,400</span>
+                </td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>Books &amp; reading materials</td>
+                <td>&mdash;</td>
+                <td>
+                  <span class="kes">KShs 500,000</span
+                  ><span class="usd">~&#36;4,400</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="table-foot">
+            Total One-Off Need: <strong>KShs 1,550,000 (~&#36;13,600)</strong>
+          </div>
+        </div>
+        <div id="tab-ops" class="tab-content">
+          <table class="needs-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Item</th>
+                <th>Per Month</th>
+                <th>Annual Cost</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Office space rental</td>
+                <td><span class="kes">KShs 30,000</span></td>
+                <td>
+                  <span class="kes">KShs 360,000</span
+                  ><span class="usd">~&#36;3,185</span>
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Volunteer stipends</td>
+                <td><span class="kes">KShs 45,000</span></td>
+                <td>
+                  <span class="kes">KShs 540,000</span
+                  ><span class="usd">~&#36;4,700</span>
+                </td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Transport, airtime, internet &amp; stationery</td>
+                <td><span class="kes">KShs 50,000</span></td>
+                <td>
+                  <span class="kes">KShs 600,000</span
+                  ><span class="usd">~&#36;5,300</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="table-foot">
+            Total Annual Operations:
+            <strong>KShs 1,500,000 (~&#36;13,185)</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- IMPACT -->
+    <section class="impact-section" id="impact">
+      <div class="text-center">
+        <span class="section-label">Our Impact</span>
+        <h2 class="section-title">Impact Built Through Consistency</h2>
+        <p class="section-sub">
+          For more than a decade, our work has combined compassion, community
+          trust, and steady action to keep showing up where girls and families
+          need us most.
+        </p>
+      </div>
+      <div class="impact-grid">
+        <div class="impact-card">
+          <div class="em">&#128103;</div>
+          <div class="num">60+</div>
+          <div class="lbl">Children Supported at Msamaria Mwema</div>
+        </div>
+        <div class="impact-card">
+          <div class="em">&#127968;</div>
+          <div class="num">5+</div>
+          <div class="lbl">Children&rsquo;s Homes Served Across Kenya</div>
+        </div>
+        <div class="impact-card">
+          <div class="em">&#127800;</div>
+          <div class="num">1000s</div>
+          <div class="lbl">Sanitary Towels Distributed to Girls</div>
+        </div>
+        <div class="impact-card">
+          <div class="em">&#128197;</div>
+          <div class="num">10+</div>
+          <div class="lbl">Years of Grassroots Community Work</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STORY HIGHLIGHT -->
+    <section class="story-highlight-section">
+      <div class="story-highlight-card">
+        <div class="story-highlight-copy">
+          <span class="section-label">Why It Matters</span>
+          <h2 class="section-title">
+            When a girl is supported, her future opens up
+          </h2>
+          <p class="section-sub">
+            Our work is about more than giving items. It is about restoring
+            confidence, protecting dignity, and making sure girls can keep
+            learning without barriers that should never define their potential.
+          </p>
+          <blockquote class="story-quote">
+            &ldquo;Support at the right time can change whether a girl falls
+            behind or keeps moving forward with confidence.&rdquo;
+          </blockquote>
+          <p class="story-attrib">
+            A reflection that guides our work with girls, caregivers, and
+            community partners.
+          </p>
+        </div>
+        <figure class="story-highlight-media">
+          <img
+            src="Images/About.jpg"
+            alt="Sister For Sister Kenya community support in action"
+            loading="lazy"
+          />
+        </figure>
+        <div class="story-highlight-points">
+          <div class="highlight-point">
+            <h3>Practical Support</h3>
+            <p>
+              Uniforms, books, sanitary towels, food support, and digital
+              learning tools all remove barriers that affect daily life and
+              long-term opportunity.
+            </p>
+          </div>
+          <div class="highlight-point">
+            <h3>Trusted Relationships</h3>
+            <p>
+              We work through homes, schools, caregivers, and partners because
+              lasting change grows through trusted local relationships.
+            </p>
+          </div>
+          <div class="highlight-point">
+            <h3>Longer-Term Possibility</h3>
+            <p>
+              Every intervention aims to move from immediate relief toward
+              stronger wellbeing, education continuity, and life choices.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWS / ARTICLES -->
+    <section class="articles-section" id="news">
+      <div class="programs-header">
+        <div>
+          <span class="section-label">News &amp; Articles</span>
+          <h2 class="section-title">Stories From the Communities We Serve</h2>
+          <p class="section-sub">
+            Our work is not only measured in numbers. It is also seen in the
+            stories, partnerships, advocacy moments, and community milestones
+            that continue shaping the journey ahead.
+          </p>
+        </div>
+        <a href="#contact" class="btn-outline">Partner With Us &rarr;</a>
+      </div>
+      <div class="articles-grid">
+        <article class="article-card article-featured">
+          <div class="article-media">
+            <img
+              src="Images/children2.jpg"
+              alt="Children and caregivers during a Sister For Sister Kenya outreach moment"
+              loading="lazy"
+            />
+          </div>
+          <span class="article-tag">Background</span>
+          <h3>From immediate relief to long-term empowerment</h3>
+          <p>
+            What began as an effort to provide sanitary towels has grown into a
+            wider commitment to educational support, child wellbeing, advocacy,
+            and community-led opportunity for girls and young women.
+          </p>
+          <div class="article-meta">Our Story &middot; Since 2014</div>
+        </article>
+        <article class="article-card">
+          <div class="article-media">
+            <img
+              src="Images/children3.jpg"
+              alt="Children in a care and support space served by Sister For Sister Kenya"
+              loading="lazy"
+            />
+          </div>
+          <span class="article-tag">Achievement</span>
+          <h3>Mobilizing support for children&rsquo;s homes and care spaces</h3>
+          <p>
+            Through charity events, donations, and community mobilization, we
+            have continued supporting care institutions including St Monica
+            Roysambu, Msamaria Mwema Children&rsquo;s Home Kabete, KNH, and St
+            Teresa Narok.
+          </p>
+          <div class="article-meta">Field Update &middot; Outreach</div>
+        </article>
+        <article class="article-card">
+          <div class="article-media">
+            <img
+              src="Images/children2.jpg"
+              alt="Girls and young women represented in advocacy and dignity campaigns"
+            />
+          </div>
+          <span class="article-tag">Advocacy</span>
+          <h3>
+            Using public platforms to champion girls&rsquo; rights and dignity
+          </h3>
+          <p>
+            We participate in advocacy spaces such as the International Day of
+            the Girl Child, the Day of the African Child, community campaigns,
+            and public events that amplify the needs and potential of girls.
+          </p>
+          <div class="article-meta">Advocacy &middot; Public Engagement</div>
+        </article>
+        <article class="article-card">
+          <span class="article-tag">Partnerships</span>
+          <h3>Building change through trusted partnerships</h3>
+          <p>
+            Our work is strengthened by collaboration across government, NGOs,
+            faith-based networks, creatives, and private-sector partners
+            including Start a Library Foundation, Fahari, Inua Dada, and other
+            supporters.
+          </p>
+          <div class="article-meta">
+            Partnerships &middot; Cross-Sector Work
+          </div>
+        </article>
+        <article class="article-card">
+          <span class="article-tag">Upcoming</span>
+          <h3>Preparing for a stronger reproductive health response</h3>
+          <p>
+            Our ongoing feasibility work in Nairobi is helping shape a more
+            holistic model of care for girls and young women, with reproductive
+            health and community access at its center.
+          </p>
+          <div class="article-meta">Upcoming Initiative &middot; Nairobi</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- TRUST / DOCUMENTS -->
+    <section class="trust-section">
+      <div class="programs-header">
+        <div>
+          <span class="section-label">Accountability</span>
+          <h2 class="section-title">Trust, Transparency, and Learning</h2>
+          <p class="section-sub">
+            We want supporters, partners, and community members to understand
+            not only what we do, but how we work, what we are learning, and
+            where resources are needed most.
+          </p>
+        </div>
+        <a href="#contact" class="btn-outline">Request Documents &rarr;</a>
+      </div>
+      <div class="trust-grid">
+        <div class="trust-card">
+          <h3>Registration &amp; Governance</h3>
+          <p>
+            We are registered in Kenya and work through community partnership,
+            responsible stewardship, and mission-driven leadership.
+          </p>
+        </div>
+        <div class="trust-card">
+          <h3>Funding Clarity</h3>
+          <p>
+            We share program needs, operational needs, and practical funding
+            priorities so donors can give with confidence and context.
+          </p>
+        </div>
+        <div class="trust-card">
+          <h3>Reports &amp; Updates</h3>
+          <p>
+            This section host annual reports, partnership briefs, organizational
+            updates, and impact summaries.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SHOP CTA -->
+    <section class="shop-cta-section" id="shop">
+      <div class="shop-cta-inner">
+        <span class="section-label">Support Through Purchase</span>
+        <h2 class="section-title">Purpose-Driven Merchandise</h2>
+        <p class="section-sub">
+          Wear the mission. Share the message. Fund the work. Our shop sells
+          branded T-shirts, polos, and hoodies &mdash; every purchase strengthens
+          the operational backbone that keeps our programs active and responsive.
+        </p>
+        <div class="shop-cta-actions">
+          <a href="shop.html" class="btn-pink">Visit The Shop &rarr;</a>
+          <a href="#donate" class="btn-outline">Donate Instead</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- DONATE — M-PESA STK PUSH + FLUTTERWAVE -->
+    <div class="donate-section" id="donate">
+      <!-- LEFT: Ways to Help -->
+      <div class="donate-left">
+        <span class="section-label">Get Involved</span>
+        <h2 class="section-title">Ways to Stand With Us</h2>
+        <p class="section-sub">
+          Whether you are giving as an individual, family, company, or
+          institution, your contribution helps us respond with consistency,
+          dignity, and care.
+        </p>
+        <div class="help-ways">
+          <div class="help-way">
+            <div class="ico">&#128179;</div>
+            <div>
+              <h4>Card / International Giving</h4>
+              <p>
+                Support securely through card payment, especially for diaspora
+                and international friends of the organization.
+              </p>
+            </div>
+          </div>
+          <div class="help-way">
+            <div class="ico">&#128242;</div>
+            <div>
+              <h4>M-Pesa Giving</h4>
+              <p>
+                Make a direct contribution through our Safaricom M-Pesa Till no.
+                855893 or with a payment prompt sent straight to your phone.
+              </p>
+            </div>
+          </div>
+          <div class="help-way">
+            <div class="ico">&#129309;</div>
+            <div>
+              <h4>Corporate &amp; Institutional Partnerships</h4>
+              <p>
+                Partner with us through CSR, program sponsorship, in-kind
+                support, or strategic collaboration that expands impact.
+              </p>
+            </div>
+          </div>
+          <div class="help-way">
+            <div class="ico">&#128226;</div>
+            <div>
+              <h4>Volunteer, Advocate, or Refer</h4>
+              <p>
+                Offer your time, amplify our message, connect us to partners, or
+                help bring support closer to communities that need it.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- CARD PANEL -->
-      <div class="pay-panel" id="panel-card">
-        <form id="cardForm">
-          <div class="amount-section">
-            <div class="amount-grid">
-              <button type="button" class="amount-btn selected" data-panel="card" data-amount="25">$25</button>
-              <button type="button" class="amount-btn" data-panel="card" data-amount="50">$50</button>
-              <button type="button" class="amount-btn" data-panel="card" data-amount="100">$100</button>
-              <button type="button" class="amount-btn" data-panel="card" data-amount="250">$250</button>
-              <button type="button" class="amount-btn" data-panel="card" data-amount="500">$500</button>
-              <button type="button" class="amount-btn" data-panel="card" data-amount="1000">$1,000</button>
+      <!-- RIGHT: Payment Form -->
+      <div class="donate-right">
+        <div class="donate-intro">
+          <h2 class="section-title">Give With Confidence</h2>
+          <p>
+            Your support helps fund direct programs and the systems that make
+            delivery possible. Choose a one-time gift for immediate impact or
+            join our monthly giver community for steady, long-term support.
+          </p>
+        </div>
+
+        <div class="giving-mode-wrap">
+          <div
+            class="giving-mode-bar"
+            role="tablist"
+            aria-label="Donation frequency"
+          >
+            <button
+              type="button"
+              class="giving-mode-btn active"
+              data-mode="once"
+            >
+              Give Once
+            </button>
+            <button type="button" class="giving-mode-btn" data-mode="monthly">
+              Give Monthly
+            </button>
+          </div>
+          <p class="giving-mode-note" id="givingModeNote">
+            Make a one-time gift today to meet immediate needs in the
+            communities we serve.
+          </p>
+        </div>
+
+        <!-- Payment method tabs -->
+        <div class="pay-tabs-bar">
+          <button class="pay-tab active" data-tab="mpesa">
+            <span class="pay-tab-icon">&#128242;</span> M-Pesa
+          </button>
+          <button class="pay-tab" data-tab="card">
+            <span class="pay-tab-icon">&#128179;</span> Card / USD
+          </button>
+        </div>
+
+        <div class="pay-panels">
+          <!-- M-PESA PANEL -->
+          <div class="pay-panel active" id="panel-mpesa">
+            <form id="mpesaForm">
+              <div class="amount-section">
+                <div class="amount-grid">
+                  <button
+                    type="button"
+                    class="amount-btn selected"
+                    data-panel="mpesa"
+                    data-amount="2500"
+                  >
+                    KES 2,500
+                  </button>
+                  <button
+                    type="button"
+                    class="amount-btn"
+                    data-panel="mpesa"
+                    data-amount="5000"
+                  >
+                    KES 5,000
+                  </button>
+                  <button
+                    type="button"
+                    class="amount-btn"
+                    data-panel="mpesa"
+                    data-amount="10000"
+                  >
+                    KES 10,000
+                  </button>
+                  <button
+                    type="button"
+                    class="amount-btn"
+                    data-panel="mpesa"
+                    data-amount="20000"
+                  >
+                    KES 20,000
+                  </button>
+                  <button
+                    type="button"
+                    class="amount-btn"
+                    data-panel="mpesa"
+                    data-amount="25000"
+                  >
+                    KES 25,000
+                  </button>
+                  <button
+                    type="button"
+                    class="amount-btn"
+                    data-panel="mpesa"
+                    data-amount="50000"
+                  >
+                    KES 50,000
+                  </button>
+                </div>
+              </div>
+              <div class="field-group">
+                <label>Custom Amount (KES)</label>
+                <input
+                  type="number"
+                  class="custom-amount"
+                  data-panel="mpesa"
+                  placeholder="Or enter your own amount"
+                  min="100"
+                />
+              </div>
+              <div class="form-row">
+                <div class="field-group">
+                  <label>Full Name</label>
+                  <input
+                    type="text"
+                    id="mpesaName"
+                    placeholder="Jane Wanjiku"
+                    required
+                  />
+                </div>
+                <div class="field-group">
+                  <label>Email</label>
+                  <input
+                    type="email"
+                    id="mpesaEmail"
+                    placeholder="jane@example.com"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="field-group">
+                <label>Safaricom Number</label>
+                <input
+                  type="tel"
+                  id="mpesaPhone"
+                  placeholder="0712 345 678"
+                  required
+                />
+                <small class="field-hint"
+                  >You&rsquo;ll receive a payment prompt on this number</small
+                >
+              </div>
+              <p class="pay-error" id="mpesaError"></p>
+              <button type="submit" class="donate-cta" id="mpesaBtn">
+                &#128242; Send M-Pesa Prompt
+              </button>
+            </form>
+
+            <!-- M-Pesa pending state -->
+            <div
+              id="mpesaPending"
+              style="display: none; text-align: center; padding: 2rem 0"
+            >
+              <div style="font-size: 3rem; margin-bottom: 1rem">&#128242;</div>
+              <h3
+                style="
+                  color: var(--white);
+                  font-family: &quot;Playfair Display&quot;, serif;
+                  margin-bottom: 0.5rem;
+                "
+              >
+                Check Your Phone
+              </h3>
+              <p style="color: rgba(255, 255, 255, 0.6); font-size: 0.9rem">
+                A payment prompt has been sent to
+              </p>
+              <p
+                style="
+                  color: var(--pink-light);
+                  font-weight: 700;
+                  font-size: 1.1rem;
+                  margin: 0.5rem 0;
+                "
+                class="pending-phone"
+              ></p>
+              <p style="color: rgba(255, 255, 255, 0.5); font-size: 0.82rem">
+                Enter your M-Pesa PIN to complete the donation.<br />This page
+                will update automatically.
+              </p>
+              <div class="mpesa-pulse">&#8226; &#8226; &#8226;</div>
             </div>
           </div>
-          <div class="field-group">
-            <label>Custom Amount (USD)</label>
-            <input type="number" class="custom-amount" data-panel="card" placeholder="Or enter your own amount" min="5"/>
+
+          <!-- CARD PANEL -->
+          <div class="pay-panel" id="panel-card">
+            <form id="cardForm">
+              <div class="amount-section">
+                <div class="amount-grid">
+                  <button
+                    type="button"
+                    class="amount-btn selected"
+                    data-panel="card"
+                    data-amount="25"
+                  >
+                    $25
+                  </button>
+                  <button
+                    type="button"
+                    class="amount-btn"
+                    data-panel="card"
+                    data-amount="50"
+                  >
+                    $50
+                  </button>
+                  <button
+                    type="button"
+                    class="amount-btn"
+                    data-panel="card"
+                    data-amount="100"
+                  >
+                    $100
+                  </button>
+                  <button
+                    type="button"
+                    class="amount-btn"
+                    data-panel="card"
+                    data-amount="250"
+                  >
+                    $250
+                  </button>
+                  <button
+                    type="button"
+                    class="amount-btn"
+                    data-panel="card"
+                    data-amount="500"
+                  >
+                    $500
+                  </button>
+                  <button
+                    type="button"
+                    class="amount-btn"
+                    data-panel="card"
+                    data-amount="1000"
+                  >
+                    $1,000
+                  </button>
+                </div>
+              </div>
+              <div class="field-group">
+                <label>Custom Amount (USD)</label>
+                <input
+                  type="number"
+                  class="custom-amount"
+                  data-panel="card"
+                  placeholder="Or enter your own amount"
+                  min="5"
+                />
+              </div>
+              <div class="form-row">
+                <div class="field-group">
+                  <label>Full Name</label>
+                  <input
+                    type="text"
+                    id="cardName"
+                    placeholder="Jane Wanjiku"
+                    required
+                  />
+                </div>
+                <div class="field-group">
+                  <label>Email</label>
+                  <input
+                    type="email"
+                    id="cardEmail"
+                    placeholder="jane@example.com"
+                    required
+                  />
+                </div>
+              </div>
+              <p class="pay-error" id="cardError"></p>
+              <button type="submit" class="donate-cta">
+                &#128179; Donate by Card
+              </button>
+              <p class="card-note">
+                International card giving is shown in USD. We recommend
+                replacing Flutterwave with a recurring-friendly platform such as
+                Paystack or PayPal for final production rollout.
+              </p>
+            </form>
           </div>
-          <div class="form-row">
-            <div class="field-group">
-              <label>Full Name</label>
-              <input type="text" id="cardName" placeholder="Jane Wanjiku" required/>
-            </div>
-            <div class="field-group">
-              <label>Email</label>
-              <input type="email" id="cardEmail" placeholder="jane@example.com" required/>
-            </div>
-          </div>
-          <p class="pay-error" id="cardError"></p>
-          <button type="submit" class="donate-cta">&#128179; Donate by Card</button>
-          <p class="card-note">International card giving is shown in USD. We recommend replacing Flutterwave with a recurring-friendly platform such as Paystack or PayPal for final production rollout.</p>
-        </form>
+        </div>
+        <!-- /.pay-panels -->
+
+        <!-- SUCCESS STATE -->
+        <div
+          id="donateSuccess"
+          style="display: none; text-align: center; padding: 2.5rem 0"
+        >
+          <div style="font-size: 3.5rem; margin-bottom: 1rem">&#127881;</div>
+          <h3
+            style="
+              font-family: &quot;Playfair Display&quot;, serif;
+              font-size: 1.6rem;
+              color: var(--white);
+              margin-bottom: 0.5rem;
+            "
+          >
+            Thank you, <span class="s-name"></span>!
+          </h3>
+          <p style="color: rgba(255, 255, 255, 0.6); font-size: 0.9rem">
+            Your <span class="s-method"></span> donation of
+            <strong style="color: var(--pink-light)"
+              ><span class="s-amount"></span
+            ></strong>
+            has been received.
+          </p>
+          <p
+            style="
+              color: rgba(255, 255, 255, 0.45);
+              font-size: 0.78rem;
+              margin-top: 0.5rem;
+            "
+            class="s-ref"
+          ></p>
+          <p
+            style="
+              color: rgba(255, 255, 255, 0.55);
+              font-size: 0.88rem;
+              margin-top: 1rem;
+            "
+          >
+            Together we are empowering the girl child across Kenya. &#127800;
+          </p>
+        </div>
       </div>
-
-    </div><!-- /.pay-panels -->
-
-    <!-- SUCCESS STATE -->
-    <div id="donateSuccess" style="display:none;text-align:center;padding:2.5rem 0">
-      <div style="font-size:3.5rem;margin-bottom:1rem">&#127881;</div>
-      <h3 style="font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--white);margin-bottom:0.5rem">Thank you, <span class="s-name"></span>!</h3>
-      <p style="color:rgba(255,255,255,0.6);font-size:0.9rem">Your <span class="s-method"></span> donation of <strong style="color:var(--pink-light)"><span class="s-amount"></span></strong> has been received.</p>
-      <p style="color:rgba(255,255,255,0.45);font-size:0.78rem;margin-top:0.5rem" class="s-ref"></p>
-      <p style="color:rgba(255,255,255,0.55);font-size:0.88rem;margin-top:1rem">Together we are empowering the girl child across Kenya. &#127800;</p>
+      <!-- /.donate-right -->
     </div>
 
-  </div><!-- /.donate-right -->
-</div>
+    <!-- PARTNERS -->
+    <div class="partners-band">
+      <p class="partners-label">Partners &amp; Collaborators</p>
+      <div class="partners-wrap">
+        <span class="partner-chip">Start a Library Foundation</span>
+        <span class="partner-chip">Fahari</span>
+        <span class="partner-chip">Inua Dada</span>
+        <span class="partner-chip">Strive for Education</span>
+        <span class="partner-chip">7 Star Productions</span>
+        <span class="partner-chip">RABD Consultancy Ltd</span>
+        <span class="partner-chip">Davieroberts Entertainment</span>
+        <span class="partner-chip">Ministry of Education</span>
+        <span class="partner-chip">Ministry of Health</span>
+        <span class="partner-chip">Ministry of Gender</span>
+        <span class="partner-chip">County Governments</span>
+      </div>
+    </div>
 
-<!-- PARTNERS -->
-<div class="partners-band">
-  <p class="partners-label">Partners &amp; Collaborators</p>
-  <div class="partners-wrap">
-    <span class="partner-chip">Start a Library Foundation</span>
-    <span class="partner-chip">Fahari</span>
-    <span class="partner-chip">Inua Dada</span>
-    <span class="partner-chip">Strive for Education</span>
-    <span class="partner-chip">7 Star Productions</span>
-    <span class="partner-chip">RABD Consultancy Ltd</span>
-    <span class="partner-chip">Davieroberts Entertainment</span>
-    <span class="partner-chip">Ministry of Education</span>
-    <span class="partner-chip">Ministry of Health</span>
-    <span class="partner-chip">Ministry of Gender</span>
-    <span class="partner-chip">County Governments</span>
-  </div>
-</div>
+    <!-- CONTACT -->
+    <section class="contact-section" id="contact">
+      <span class="section-label">Reach Us</span>
+      <h2 class="section-title">Talk To Our Team</h2>
+      <div class="contact-grid">
+        <div>
+          <div class="contact-item">
+            <div class="ico-wrap">&#128222;</div>
+            <div>
+              <h4>Phone</h4>
+              <a href="tel:+254716682692">+254 716 682 692</a>
+              <p>David Ndegwa &mdash; Head of Operations</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ico-wrap">&#9993;</div>
+            <div>
+              <h4>Email</h4>
+              <a href="mailto:sisterforsister94@gmail.com"
+                >sisterforsister94@gmail.com</a
+              >
+              <p>
+                For partnerships, giving, merchandise, and general enquiries.
+              </p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ico-wrap">&#128280;</div>
+            <div>
+              <h4>Facebook</h4>
+              <a
+                href="https://web.facebook.com/sisterforsisterkenya"
+                target="_blank"
+                rel="noopener"
+                >Sister For Sister Kenya</a
+              >
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ico-wrap">&#127970;</div>
+            <div>
+              <h4>Registration</h4>
+              <p>
+                Registered by the Registrar of Societies, Kenya &middot; October
+                2014
+              </p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ico-wrap">&#128205;</div>
+            <div>
+              <h4>Area of Operation</h4>
+              <p>Nairobi and vulnerable communities across Kenya</p>
+            </div>
+          </div>
+        </div>
+        <div class="map-ph">
+          <span>&#128506;</span>
+          <p>Nairobi, Kenya</p>
+          <small
+            >Serving communities across Kenya through partnerships and direct
+            programs</small
+          >
+        </div>
+      </div>
+    </section>
 
-<!-- CONTACT -->
-<section class="contact-section" id="contact">
-  <span class="section-label">Reach Us</span>
-  <h2 class="section-title">Talk To Our Team</h2>
-  <div class="contact-grid">
-    <div>
-      <div class="contact-item"><div class="ico-wrap">&#128222;</div><div><h4>Phone</h4><a href="tel:+254716682692">+254 716 682 692</a><p>David Ndegwa &mdash; Head of Operations</p></div></div>
-      <div class="contact-item"><div class="ico-wrap">&#9993;</div><div><h4>Email</h4><a href="mailto:sisterforsister94@gmail.com">sisterforsister94@gmail.com</a><p>For partnerships, giving, merchandise, and general enquiries.</p></div></div>
-      <div class="contact-item"><div class="ico-wrap">&#128280;</div><div><h4>Facebook</h4><a href="https://web.facebook.com/sisterforsisterkenya" target="_blank" rel="noopener">Sister For Sister Kenya</a></div></div>
-      <div class="contact-item"><div class="ico-wrap">&#127970;</div><div><h4>Registration</h4><p>Registered by the Registrar of Societies, Kenya &middot; October 2014</p></div></div>
-      <div class="contact-item"><div class="ico-wrap">&#128205;</div><div><h4>Area of Operation</h4><p>Nairobi and vulnerable communities across Kenya</p></div></div>
-    </div>
-    <div class="map-ph">
-      <span>&#128506;</span>
-      <p>Nairobi, Kenya</p>
-      <small>Serving communities across Kenya through partnerships and direct programs</small>
-    </div>
-  </div>
-</section>
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="Images/logo.jpg" alt="Sister For Sister Kenya" />
+          <p>
+            A Kenyan non-profit organization advancing dignity, education,
+            protection, and opportunity for girls and young women through
+            community-rooted action since 2014.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="#programs">Msamaria Mwema</a></li>
+            <li><a href="#programs">Digital Literacy</a></li>
+            <li><a href="#programs">Sanitary Towels</a></li>
+            <li><a href="#programs">Healthcare</a></li>
+            <li><a href="#programs">Covid-19 Support</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Get Involved</h4>
+          <ul>
+            <li><a href="#donate">Donate via M-Pesa</a></li>
+            <li><a href="#donate">Donate by Card</a></li>
+            <li><a href="shop.html">Buy Merchandise / Shop</a></li>
+            <li><a href="#donate">Corporate Partnerships</a></li>
+            <li><a href="#contact">Volunteer or Refer</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:+254716682692">+254 716 682 692</a></li>
+            <li>
+              <a href="mailto:sisterforsister94@gmail.com"
+                >sisterforsister94@gmail.com</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://web.facebook.com/sisterforsisterkenya"
+                target="_blank"
+                rel="noopener"
+                >Facebook Page</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Sister For Sister Kenya. All rights reserved.</p>
+        <span class="reg-badge"
+          >Registered NGO &middot; Kenya &middot; 2014</span
+        >
+      </div>
+    </footer>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-top">
-    <div class="footer-brand">
-      <img src="/Images/logo.jpg" alt="Sister For Sister Kenya"/>
-      <p>A Kenyan non-profit organization advancing dignity, education, protection, and opportunity for girls and young women through community-rooted action since 2014.</p>
-    </div>
-    <div class="footer-col">
-      <h4>Programs</h4>
-      <ul>
-        <li><a href="#programs">Msamaria Mwema</a></li>
-        <li><a href="#programs">Digital Literacy</a></li>
-        <li><a href="#programs">Sanitary Towels</a></li>
-        <li><a href="#programs">Healthcare</a></li>
-        <li><a href="#programs">Covid-19 Support</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Get Involved</h4>
-      <ul>
-        <li><a href="#donate">Donate via M-Pesa</a></li>
-        <li><a href="#donate">Donate by Card</a></li>
-        <li><a href="#merchandise">Buy Merchandise</a></li>
-        <li><a href="#donate">Corporate Partnerships</a></li>
-        <li><a href="#contact">Volunteer or Refer</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Contact</h4>
-      <ul>
-        <li><a href="tel:+254716682692">+254 716 682 692</a></li>
-        <li><a href="mailto:sisterforsister94@gmail.com">sisterforsister94@gmail.com</a></li>
-        <li><a href="https://web.facebook.com/sisterforsisterkenya" target="_blank" rel="noopener">Facebook Page</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>&copy; 2026 Sister For Sister Kenya. All rights reserved.</p>
-    <span class="reg-badge">Registered NGO &middot; Kenya &middot; 2014</span>
-  </div>
-</footer>
-
-<script src="main.js"></script>
-<script>
-  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-</script>
-<script defer src="/<unique-path>/script.js"></script>
-</body>
+    <script src="main.js"></script>
+    <script>
+      window.va =
+        window.va ||
+        function () {
+          (window.vaq = window.vaq || []).push(arguments);
+        };
+    </script>
+  </body>
 </html>
